@@ -1,8 +1,7 @@
 function App() {
 	const get = async () => {
-		const response = await fetch("http://localhost:8000/");
-		const data = await response.json();
-		console.log(data);
+		const response = await fetch("http://localhost:8000/register");
+		console.log(response);
 	};
 	get();
 	return <div>welcome to frontend</div>;
