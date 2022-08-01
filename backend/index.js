@@ -9,17 +9,9 @@ dotenv.config();
 const app = express();
 const { readdirSync } = require("fs");
 
-let allowedOrigins = ["http://localhost:3000"];
-function corsOptions(req, res) {
-	let temp;
-	let origin = req.header("Origin");
-	if (allowedOrigins.indexOf(origin) > -1) {
-		temp = { origin: true, useSuccessStatus: 200 };
-	} else {
-		temp = { origin: false, useSuccessStatus: 401 };
-	}
-	res(null, temp);
-}
+let corsOptions = {
+	origin: "http://localhost:3000",
+};
 app.use(cors(corsOptions));
 
 app.use(express.json());
