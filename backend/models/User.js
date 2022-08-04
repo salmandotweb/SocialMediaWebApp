@@ -62,7 +62,7 @@ const userSchema = new Schema(
 			required: true,
 			trim: true,
 		},
-		verfied: {
+		verified: {
 			type: Boolean,
 			default: false,
 		},

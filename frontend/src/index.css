@@ -1,39 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
 * {
 	padding: 0;
 	margin: 0;
+	outline: none;
 	box-sizing: border-box;
 }
-body {
-	font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-	font-size: 1.6rem;
-}
-html {
-	font-size: 62.5%;
-	overflow-y: scroll;
-}
-a {
-	text-decoration: none;
-	color: inherit;
-}
 :root {
-	--bg-primary: #fff;
-	--bg-secondary: #f0f2f5;
-	--bg-third: #e4e6eb;
-	--bg-forth: #f0f2f5;
+	--white: #fff;
+	--light-white: #fdfaf3;
+	--black: #08141c;
+	--light-green: #517879;
+	--dark-green: #1e3e57;
+	--primary-color: #284a5e;
+	--secondary-color: #476d73;
+	--grey: #c4c4c4;
+	--gradient1: linear-gradient(to bottom, #517879 0%, #1e3e57 100%);
+	--gradient2: linear-gradient(to right, #517879 0%, #1e3e57 100%);
 	--color-primary: #050505;
 	--color-secondary: #65676b;
 	--divider: #ced0d4;
-	--dark-bg-primary: #18191a;
-	--dark-bg-secondary: #242526;
-	--dark-bg-third: #3a3b3c;
-	--dark-color-primary: #242526;
-	--dark-color-secondary: #b0b3b8;
-	--blue-color: #1876f2;
-	--green-color: #42b72a;
-	--light-blue-color: #e7f3ff;
 	--border-color: #ccced2;
 	--shadow-1: rgba(0, 0, 0, 0.2);
 	--shadow-2: rgba(0, 0, 0, 0.1);
 	--shadow-3: rgba(0, 0, 0, 0.3);
 	--shadow-inset: rgba(255, 255, 255, 0.5);
+}
+body {
+	font-family: "Space Grotesk", sans-serif;
+	font-size: 1.6rem;
+	background: var(--light-white);
+	overflow-x: hidden;
+}
+html {
+	font-size: 62.5%;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+input {
+	border: 0.15rem solid #cccccc;
+	border-radius: 0.4rem;
+	padding: 1rem;
+	font-size: 1.6rem;
+	width: 100%;
+	background: none;
+	box-shadow: rgba(0, 0, 0, 0.2);
+	font-family: inherit;
+}
+input::placeholder {
+	color: var(--grey);
+	font-family: inherit;
+}
+.btn {
+	padding: 1rem 2rem;
+	border: 0;
+	border-radius: 0.5rem;
+	font-size: 1.6rem;
+	font-weight: 600;
+	cursor: pointer;
+	background: var(--primary-color);
+	color: var(--white);
+}
+button {
+	font-family: inherit;
+}
+.error {
+	margin-top: 1rem;
+	font-size: 1.4rem;
+	color: red;
 }
