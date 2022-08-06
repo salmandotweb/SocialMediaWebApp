@@ -6,13 +6,13 @@ const objectId = mongoose.Schema.ObjectId;
 
 const userSchema = new Schema(
 	{
-		first_name: {
+		firstName: {
 			type: String,
 			required: [true, "First name is required"],
 			trim: true,
 			text: true,
 		},
-		last_name: {
+		lastName: {
 			type: String,
 			required: [true, "Last name is required"],
 			trim: true,

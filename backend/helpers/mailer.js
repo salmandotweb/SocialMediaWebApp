@@ -43,7 +43,7 @@ exports.sendVerificationEmail = (email, name, url) => {
 		html: `
         <h3>Hi ${name},</h3>
         <p>Thank you for registering with us. Please click the link below to verify your email address.</p>
-        <p>${url}</p>
+		<a href="${url}">Confirm Account</a>
         <hr />
         <p>This email may contain sensitive information</p>
     `,

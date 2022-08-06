@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import classes from "../../styles/stylesheets/Authentication.module.css";
 import LoginInput from "../inputs/LoginInput";
+import BeatLoader from "react-spinners/BeatLoader";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../services/userSlice";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const loginDetails = {
 	email: "",
@@ -12,9 +18,12 @@ const loginDetails = {
 
 const LoginForm = () => {
 	const [login, setLogin] = useState(loginDetails);
+	const [error, setError] = useState("");
+	const [loading, setLoading] = useState(false);
 	const { email, password } = login;
 
-	console.log(login);
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const handleOnChange = (e) => {
 		const { name, value } = e.target;
@@ -28,6 +37,26 @@ const LoginForm = () => {
 
 		password: Yup.string().required("Password is Required"),
 	});
+
+	const loginUser = async () => {
+		try {
+			setLoading(true);
+			const { data } = await axios.post(
+				`${process.env.REACT_APP_BASE_URL}/login`,
+				{
+					email,
+					password,
+				}
+			);
+			setLoading(false);
+			dispatch(userLogin(data));
+			Cookies.set("user", JSON.stringify(data));
+			navigate("/");
+		} catch (err) {
+			setLoading(false);
+			setError(err.response.data.message);
+		}
+	};
 	return (
 		<>
 			<Formik
@@ -36,7 +65,8 @@ const LoginForm = () => {
 					email,
 					password,
 				}}
-				validationSchema={loginSchema}>
+				validationSchema={loginSchema}
+				onSubmit={() => loginUser()}>
 				{(formik) => (
 					<Form className={classes.form}>
 						<h2>Login to your account</h2>
@@ -57,8 +87,13 @@ const LoginForm = () => {
 							onChange={handleOnChange}
 						/>
 						<button type="submit" className="btn">
-							Login
+							{loading ? (
+								<BeatLoader color="#fff" loading={loading} size={10} />
+							) : (
+								"Login"
+							)}
 						</button>
+						{error && <p className="error">{error}</p>}
 						<p className={classes.signup}>
 							Not have an acount?
 							<Link to="/register">

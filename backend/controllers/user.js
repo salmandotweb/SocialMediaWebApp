@@ -12,10 +12,9 @@ const { sendVerificationEmail } = require("../helpers/mailer");
 exports.register = async (req, res) => {
 	try {
 		const {
-			first_name,
-			last_name,
+			firstName,
+			lastName,
 			email,
-			username,
 			password,
 			bYear,
 			bMonth,
@@ -37,13 +36,13 @@ exports.register = async (req, res) => {
 			});
 		}
 
-		if (!validateLength(first_name, 3, 20)) {
+		if (!validateLength(firstName, 3, 20)) {
 			return res.status(400).json({
 				message: "First name must be between 3 and 20 characters",
 			});
 		}
 
-		if (!validateLength(last_name, 3, 20)) {
+		if (!validateLength(lastName, 3, 20)) {
 			return res.status(400).json({
 				message: "Last name must be between 3 and 20 characters",
 			});
@@ -57,12 +56,12 @@ exports.register = async (req, res) => {
 
 		const hashedPassword = await bcrypt.hash(password, 12);
 
-		let autoUsername = first_name + last_name;
+		let autoUsername = firstName + lastName;
 		let suggestedUsername = await validateUsername(autoUsername);
 
 		const user = await new User({
-			first_name,
-			last_name,
+			firstName,
+			lastName,
 			email,
 			username: suggestedUsername,
 			password: hashedPassword,
@@ -78,7 +77,7 @@ exports.register = async (req, res) => {
 		);
 
 		const url = `${process.env.BASEURL}/activate/${emailVerificationToken}`;
-		sendVerificationEmail(user.email, user.first_name, url);
+		sendVerificationEmail(user.email, user.firstName, url);
 
 		const token = generateToken({ id: user._id.toString() }, "7d");
 
@@ -86,8 +85,8 @@ exports.register = async (req, res) => {
 			id: user._id,
 			username: user.username,
 			picture: user.picture,
-			first_name: user.first_name,
-			last_name: user.last_name,
+			firstName: user.firstName,
+			lastName: user.lastName,
 			token: token,
 			verified: user.verified,
 			message:
@@ -143,12 +142,10 @@ exports.login = async (req, res) => {
 			id: user._id,
 			username: user.username,
 			picture: user.picture,
-			first_name: user.first_name,
-			last_name: user.last_name,
+			firstName: user.firstName,
+			lastName: user.lastName,
 			token: token,
 			verified: user.verified,
-			message:
-				"Registration Successful, please check your email to verify your account.",
 		});
 	} catch (error) {
 		res.status(500).json({
