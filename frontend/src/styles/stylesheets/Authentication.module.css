@@ -24,10 +24,6 @@
 	flex: 0.55;
 	width: 100%;
 	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
 }
 .form {
 	display: flex;
@@ -43,6 +39,9 @@
 }
 .form > h2 {
 	margin-bottom: 5rem;
+}
+.loginForm {
+	margin: 10rem auto;
 }
 .input {
 	margin-bottom: 2rem;

@@ -68,7 +68,7 @@ const LoginForm = () => {
 				validationSchema={loginSchema}
 				onSubmit={() => loginUser()}>
 				{(formik) => (
-					<Form className={classes.form}>
+					<Form className={`${classes.form} ${classes.loginForm}`}>
 						<h2>Login to your account</h2>
 						<LoginInput
 							label="Email Address"

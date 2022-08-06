@@ -30,6 +30,7 @@ body {
 	font-family: "Space Grotesk", sans-serif;
 	font-size: 1.6rem;
 	background: var(--light-white);
+	color: var(--primary-color);
 	overflow-x: hidden;
 }
 html {
@@ -39,6 +40,7 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
 input {
 	border: 0.15rem solid #cccccc;
 	border-radius: 0.4rem;
