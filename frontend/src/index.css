@@ -71,3 +71,17 @@ button {
 	font-size: 1.4rem;
 	color: red;
 }
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
+	display: none !important;
+}
+.react-datepicker__month-container {
+	width: 20rem;
+	height: 20rem;
+}
+.react-datepicker__week {
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem;
+}
