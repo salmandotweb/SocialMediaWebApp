@@ -5,6 +5,7 @@
 	margin: 0;
 	outline: none;
 	box-sizing: border-box;
+	list-style-type: none;
 }
 :root {
 	--white: #fff;
@@ -25,11 +26,12 @@
 	--shadow-2: rgba(0, 0, 0, 0.1);
 	--shadow-3: rgba(0, 0, 0, 0.3);
 	--shadow-inset: rgba(255, 255, 255, 0.5);
+	--placeholder-color: #a2a2ab;
 }
 body {
 	font-family: "Space Grotesk", sans-serif;
 	font-size: 1.6rem;
-	background: var(--light-white);
+	background: var(--white);
 	color: var(--primary-color);
 	overflow-x: hidden;
 }
@@ -50,10 +52,12 @@ input {
 	background: none;
 	box-shadow: rgba(0, 0, 0, 0.2);
 	font-family: inherit;
+	font-weight: 500;
 }
 input::placeholder {
-	color: var(--grey);
+	color: var(--placeholder-color);
 	font-family: inherit;
+	font-weight: 400;
 }
 .btn {
 	padding: 1rem 2rem;
@@ -80,4 +84,12 @@ button:active {
 	margin-top: 1rem;
 	font-size: 1.4rem;
 	color: green;
+}
+.profileImage {
+	width: 3.8rem;
+	height: 3.8rem;
+	object-fit: cover;
+	border-radius: 50%;
+	margin-left: 1rem;
+	cursor: pointer;
 }

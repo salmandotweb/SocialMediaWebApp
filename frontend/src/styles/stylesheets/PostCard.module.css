@@ -1,0 +1,21 @@
+.postCard {
+	width: 40rem;
+	background: var(--white);
+	padding: 1.5rem;
+	border-radius: 1rem;
+}
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.header > img {
+	margin: 0;
+	margin-right: 1rem;
+}
+.postInput {
+	border-radius: 0.7rem;
+	border: 0;
+	background: #f6f7f9;
+	font-size: 1.4rem;
+}

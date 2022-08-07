@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../components/global/Header";
-import Sidebar from "../components/global/Sidebar";
+import PostCard from "../components/home/PostCard";
+import classes from "../styles/stylesheets/Home.module.css";
 
 const Home = () => {
 	return (
-		<>
-			<Header />
-			<Sidebar />
-		</>
+		<div className={classes.feedContainer}>
+			<PostCard />
+			<div className={classes.postsContainer}></div>
+		</div>
 	);
 };
 

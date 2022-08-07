@@ -1,0 +1,36 @@
+.sidebar {
+	padding: 2rem;
+	width: 35rem;
+}
+.sidebar a {
+	width: 100%;
+}
+.sidebarLinks {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+.sidebarLinks li {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 1.7rem;
+	font-weight: 600;
+}
+.sidebarLinks svg {
+	margin-right: 1rem;
+}
+.sidebarLink {
+	padding: 1.5rem;
+	width: 100%;
+	border-radius: 0.5rem;
+	transition: 250ms all;
+}
+.sidebarLink:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+.sidebarLink:hover {
+	background: var(--primary-color);
+	color: var(--white);
+}

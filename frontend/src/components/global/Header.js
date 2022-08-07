@@ -28,7 +28,11 @@ const Header = () => {
 						<span>{user?.firstName}</span>
 						{user?.lastName}
 					</h3>
-					<img src={user?.picture} alt={user?.firstName} />
+					<img
+						src={user?.picture}
+						alt={user?.firstName}
+						className="profileImage"
+					/>
 				</div>
 			</div>
 		</div>
