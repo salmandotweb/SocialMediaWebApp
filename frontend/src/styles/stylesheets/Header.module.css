@@ -47,7 +47,7 @@
 }
 .profile > h3 {
 	font-size: 1.6rem;
-	color: var(--secondary-color) !important;
+	color: var(--primary-color) !important;
 }
 .profile > h3 > span {
 	margin-right: 0.5rem;
