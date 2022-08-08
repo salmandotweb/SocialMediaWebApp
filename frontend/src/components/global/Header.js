@@ -5,8 +5,6 @@ import classes from "../../styles/Header.module.css";
 
 const Header = () => {
 	const { user } = useSelector((state) => state.user);
-
-	console.log(user);
 	return (
 		<div className={classes.header}>
 			<div className={classes.left}>
