@@ -1,8 +1,9 @@
 .postCard {
-	width: 46rem;
+	width: 55rem;
 	background: var(--white);
 	padding: 1.5rem;
 	border-radius: 1rem;
+	box-shadow: var(--shadow-4);
 }
 .header {
 	display: flex;

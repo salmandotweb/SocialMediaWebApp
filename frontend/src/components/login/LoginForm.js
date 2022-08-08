@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Formik } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import classes from "../../styles/stylesheets/Authentication.module.css";
+import classes from "../../styles/Authentication.module.css";
 import LoginInput from "../inputs/LoginInput";
 import BeatLoader from "react-spinners/BeatLoader";
 import axios from "axios";

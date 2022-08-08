@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { HiOutlineVideoCamera, HiOutlinePhotograph } from "react-icons/hi";
 import { BsEmojiSmile } from "react-icons/bs";
-import classes from "../../styles/stylesheets/PostCard.module.css";
+import classes from "../../styles/PostCard.module.css";
 
 const PostCard = () => {
 	const { user } = useSelector((state) => state.user);

@@ -1,4 +1,4 @@
-import classes from "../styles/stylesheets/Authentication.module.css";
+import classes from "../styles/Authentication.module.css";
 import LoginForm from "../components/login/LoginForm";
 
 const Login = () => {

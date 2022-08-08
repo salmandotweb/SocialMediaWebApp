@@ -1,9 +1,15 @@
 .feedContainer {
-	background: #fafafc;
+	background: var(--background);
 	width: 100%;
 	padding: 3rem;
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
 	margin-top: 1.5rem;
 	min-height: calc(100vh - 10rem);
+}
+.postsContainer {
+	margin-top: 5rem;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
 }

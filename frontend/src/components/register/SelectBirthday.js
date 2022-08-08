@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../../styles/stylesheets/Authentication.module.css";
+import classes from "../../styles/Authentication.module.css";
 
 const SelectBirthday = ({
 	bDay,

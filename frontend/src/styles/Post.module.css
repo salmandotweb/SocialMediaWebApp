@@ -1,0 +1,144 @@
+.postContainer {
+	/* width: 46rem; */
+	width: 55rem;
+	background: var(--white);
+	padding: 1.5rem 1rem;
+	border-radius: 1rem;
+	box-shadow: var(--shadow-4);
+}
+.postContainer:not(:last-child) {
+	margin-bottom: 2.5rem;
+}
+.postHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+.postHeaderLeft {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.profileImage {
+	width: 4rem;
+	height: 4rem;
+}
+.postUserDetails {
+	display: flex;
+	flex-direction: column;
+	margin-left: 1rem;
+}
+.postUserDetails > h3 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.postUserDetails > p {
+	font-size: 1.2rem;
+	color: var(--placeholder-color);
+	margin-top: 0.1rem;
+}
+.postHeaderRight {
+	padding-right: 1rem;
+}
+.postHeaderRight > svg {
+	font-size: 2rem;
+	cursor: pointer;
+}
+.postBody {
+	margin: 2rem 0 1rem 0;
+	padding: 0 1rem;
+}
+.postBody > p {
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: var(--primary-color);
+}
+.postImage {
+	width: 100%;
+	height: 27rem;
+	object-fit: cover;
+	border-radius: 1rem;
+	margin-top: 1rem;
+}
+.postFooter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.postReactions {
+	padding: 0 1rem;
+}
+.postReactions > img {
+	width: 1.7rem;
+	height: 1.7rem;
+	object-fit: cover;
+	border-radius: 50%;
+	margin-right: 0.5rem;
+}
+.postReactions > img:nth-child(2) {
+	margin-left: -0.7rem;
+}
+.postReactions > img:nth-child(3) {
+	margin-left: -0.7rem;
+}
+.postFooterRight {
+	display: flex;
+	align-items: center;
+}
+.postFooterRight > p {
+	font-size: 1.3rem;
+	cursor: pointer;
+	color: var(--placeholder-color);
+}
+.postFooterRight > p:not(:last-child) {
+	margin-right: 1rem;
+}
+.postOptions {
+	border-top: 0.1rem solid #eee;
+	border-bottom: 0.1rem solid #eee;
+	margin: 1rem 0;
+	padding: 0.8rem 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+.postOption {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0.3rem 0;
+	background: none;
+	color: var(--primary-color);
+	font-size: 1.4rem;
+}
+.postOption > svg {
+	margin-right: 0.5rem;
+}
+.loggedUserOptions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.loggedUserComment {
+	width: 100%;
+	margin: 0 1rem;
+}
+.loggedUserComment > input {
+	width: 100%;
+	border: none;
+	outline: none;
+	border-radius: 0.7rem;
+	font-size: 1.3rem;
+	color: var(--primary-color);
+	background: var(--background);
+}
+.loggedUserOptions > button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 1.5rem;
+	height: 100%;
+	border-radius: 0.5rem;
+}

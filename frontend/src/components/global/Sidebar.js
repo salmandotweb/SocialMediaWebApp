@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import classes from "../../styles/stylesheets/Sidebar.module.css";
+import classes from "../../styles/Sidebar.module.css";
 import { AiOutlineSetting, AiOutlineUser } from "react-icons/ai";
 import { MdOutlineDashboard, MdTravelExplore } from "react-icons/md";
 import { RiLogoutCircleRLine } from "react-icons/ri";

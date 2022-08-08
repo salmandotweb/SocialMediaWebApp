@@ -1,7 +1,7 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
 import { useSelector } from "react-redux";
-import classes from "../../styles//stylesheets/Header.module.css";
+import classes from "../../styles/Header.module.css";
 
 const Header = () => {
 	const { user } = useSelector((state) => state.user);

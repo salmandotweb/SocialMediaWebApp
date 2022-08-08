@@ -1,6 +1,6 @@
 import React from "react";
 import { ErrorMessage, useField } from "formik";
-import classes from "../../styles/stylesheets/Authentication.module.css";
+import classes from "../../styles/Authentication.module.css";
 
 const registerInput = ({ label, placeholder, ...props }) => {
 	const [field, meta] = useField(props);

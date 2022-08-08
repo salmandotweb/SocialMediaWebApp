@@ -25,8 +25,10 @@
 	--shadow-1: rgba(0, 0, 0, 0.2);
 	--shadow-2: rgba(0, 0, 0, 0.1);
 	--shadow-3: rgba(0, 0, 0, 0.3);
+	--shadow-4: 0 0.1rem 1rem rgba(0, 0, 0, 0.08);
 	--shadow-inset: rgba(255, 255, 255, 0.5);
 	--placeholder-color: #a2a2ab;
+	--background: #fafafc;
 }
 body {
 	font-family: "Space Grotesk", sans-serif;

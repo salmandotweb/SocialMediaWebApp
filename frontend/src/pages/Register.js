@@ -1,6 +1,6 @@
 import React from "react";
 import RegisterForm from "../components/register/RegisterForm";
-import classes from "../styles/stylesheets/Authentication.module.css";
+import classes from "../styles/Authentication.module.css";
 
 const Register = () => {
 	return (
