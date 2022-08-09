@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout";
+import ActivateAccount from "./pages/ActivateAccount";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -12,6 +13,10 @@ function App() {
 			<Routes>
 				<Route element={<ProtectedRoutes />}>
 					<Route path="/" element={<HomeLayout children={<Home />} />} />
+					<Route
+						path="/activate/:token"
+						element={<HomeLayout children={<ActivateAccount />} />}
+					/>
 				</Route>
 				<Route element={<NotLoggedInRoutes />}>
 					<Route path="/register" element={<Register />} />

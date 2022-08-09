@@ -3,9 +3,10 @@ import Post from "../components/home/Post";
 import PostCard from "../components/home/PostCard";
 import classes from "../styles/Home.module.css";
 
-const Home = () => {
+const Home = ({ children }) => {
 	return (
 		<div className={classes.feedContainer}>
+			{children}
 			<PostCard />
 			<div className={classes.postsContainer}>
 				<Post />

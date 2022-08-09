@@ -101,9 +101,15 @@ exports.register = async (req, res) => {
 
 exports.activeAccount = async (req, res) => {
 	try {
+		const actualUser = req.user.id;
 		const { token } = req.body;
 		const user = jwt.verify(token, process.env.JWT_SECRET);
 		const check = await User.findOne({ _id: user.id });
+		if (actualUser !== user.id) {
+			return res.status(400).json({
+				message: "This account does not belong to you.",
+			});
+		}
 		if (check.verified === true) {
 			return res.status(400).json({
 				message: "Account already verified",
@@ -153,3 +159,5 @@ exports.login = async (req, res) => {
 		});
 	}
 };
+
+exports.sendVerification = async (req, res) => {};

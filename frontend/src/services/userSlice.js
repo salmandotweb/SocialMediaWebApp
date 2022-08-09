@@ -13,6 +13,9 @@ export const userSlice = createSlice({
 		userLogout: (state) => {
 			state.user = null;
 		},
+		userVerifiedStatus: (state, action) => {
+			state.user.verified = action.payload;
+		},
 	},
 });
 

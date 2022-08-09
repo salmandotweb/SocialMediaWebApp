@@ -1,5 +1,11 @@
 const express = require("express");
-const { register, activeAccount, login } = require("../controllers/user");
+const {
+	register,
+	activeAccount,
+	login,
+	sendVerification,
+} = require("../controllers/user");
+const { authUser } = require("../middlewares/auth");
 
 const router = express.Router();
 
@@ -13,7 +19,8 @@ router.get("/register", (req, res) => {
 });
 
 router.post("/register", register);
-router.post("/activate", activeAccount);
+router.post("/activate", authUser, activeAccount);
 router.post("/login", login);
+router.post("/sendVerificationEmail", sendVerification);
 
 module.exports = router;
