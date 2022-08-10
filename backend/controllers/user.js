@@ -160,4 +160,30 @@ exports.login = async (req, res) => {
 	}
 };
 
-exports.sendVerification = async (req, res) => {};
+exports.sendVerification = async (req, res) => {
+	try {
+		const id = req.user.id;
+		const user = await User.findById(id);
+		if (user.verified === true) {
+			return res.status(400).json({
+				message: "Account already verified",
+			});
+		}
+		const emailVerificationToken = generateToken(
+			{
+				id: user._id.toString(),
+			},
+			"30m"
+		);
+		const url = `${process.env.BASEURL}/activate/${emailVerificationToken}`;
+		sendVerificationEmail(user.email, user.firstName, url);
+
+		return res.status(200).json({
+			message: "Verification email sent successfully",
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: error.message,
+		});
+	}
+};

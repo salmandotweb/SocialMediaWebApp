@@ -1,6 +1,5 @@
 .postContainer {
-	/* width: 46rem; */
-	width: 55rem;
+	width: 60rem;
 	background: var(--white);
 	padding: 1.5rem 1rem;
 	border-radius: 1rem;
@@ -21,8 +20,8 @@
 	justify-content: flex-start;
 }
 .profileImage {
-	width: 4rem;
-	height: 4rem;
+	width: 4.5rem;
+	height: 4.5rem;
 }
 .postUserDetails {
 	display: flex;
@@ -30,12 +29,12 @@
 	margin-left: 1rem;
 }
 .postUserDetails > h3 {
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 	font-weight: 600;
 }
 .postUserDetails > p {
 	font-size: 1.2rem;
-	color: var(--placeholder-color);
+	color: var(--light-grey);
 	margin-top: 0.1rem;
 }
 .postHeaderRight {
@@ -50,13 +49,13 @@
 	padding: 0 1rem;
 }
 .postBody > p {
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 	font-weight: 500;
-	color: var(--primary-color);
+	color: var(--primary);
 }
 .postImage {
 	width: 100%;
-	height: 27rem;
+	height: 35rem;
 	object-fit: cover;
 	border-radius: 1rem;
 	margin-top: 1rem;
@@ -89,7 +88,7 @@
 .postFooterRight > p {
 	font-size: 1.3rem;
 	cursor: pointer;
-	color: var(--placeholder-color);
+	color: var(--light-grey);
 }
 .postFooterRight > p:not(:last-child) {
 	margin-right: 1rem;
@@ -110,7 +109,7 @@
 	justify-content: flex-start;
 	padding: 0.3rem 0;
 	background: none;
-	color: var(--primary-color);
+	color: var(--primary);
 	font-size: 1.4rem;
 }
 .postOption > svg {
@@ -131,14 +130,16 @@
 	outline: none;
 	border-radius: 0.7rem;
 	font-size: 1.3rem;
-	color: var(--primary-color);
+	color: var(--primary);
 	background: var(--background);
 }
 .loggedUserOptions > button {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 1rem 1.5rem;
-	height: 100%;
-	border-radius: 0.5rem;
+	padding: 0;
 }

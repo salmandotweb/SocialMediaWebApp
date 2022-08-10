@@ -1,9 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { BiComment, BiDotsHorizontalRounded } from "react-icons/bi";
-import { FaRegComments } from "react-icons/fa";
-import { GrShareOption } from "react-icons/gr";
-import { AiOutlineLike, AiOutlineSend } from "react-icons/ai";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
 import classes from "../../styles/Post.module.css";
 
 const Post = () => {
@@ -51,15 +48,15 @@ const Post = () => {
 			</div>
 			<div className={classes.postOptions}>
 				<button className={`btn ${classes.postOption}`}>
-					<AiOutlineLike />
+					<img src="/reacts/like.svg" alt="icon" className="optionsIcon" />
 					Like
 				</button>
 				<button className={`btn ${classes.postOption}`}>
-					<FaRegComments />
+					<img src="/icons/comments.png" alt="icon" className="optionsIcon" />
 					Comments
 				</button>
 				<button className={`btn ${classes.postOption}`}>
-					<GrShareOption />
+					<img src="/icons/share.png" alt="icon" className="optionsIcon" />
 					Share
 				</button>
 			</div>
@@ -77,7 +74,7 @@ const Post = () => {
 					/>
 				</div>
 				<button className="btn">
-					<AiOutlineSend />
+					<img src="/icons/send.png" alt="icon" className="svgIcon" />
 				</button>
 			</div>
 		</div>

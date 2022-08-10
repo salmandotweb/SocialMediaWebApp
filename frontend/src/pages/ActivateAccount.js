@@ -55,11 +55,13 @@ const ActivateAccount = () => {
 
 			setTimeout(() => {
 				navigate("/");
+				window.location.reload();
 			}, 4000);
 		} catch (error) {
 			setError(error.response.data.message);
 			setTimeout(() => {
 				navigate("/");
+				window.location.reload();
 			}, 4000);
 		}
 	};

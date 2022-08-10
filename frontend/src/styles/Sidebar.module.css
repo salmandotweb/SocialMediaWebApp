@@ -1,6 +1,11 @@
 .sidebar {
-	padding: 2rem;
+	padding: 0 2rem;
 	width: 40rem;
+	position: sticky;
+	top: 8rem;
+}
+.sidebar li {
+	cursor: pointer;
 }
 .sidebar a {
 	width: 100%;
@@ -18,9 +23,6 @@
 	font-size: 1.7rem;
 	font-weight: 600;
 }
-.sidebarLinks svg {
-	margin-right: 1rem;
-}
 .sidebarLink {
 	padding: 1.5rem;
 	width: 100%;
@@ -31,6 +33,6 @@
 	margin-bottom: 0.5rem;
 }
 .sidebarLink:hover {
-	background: var(--primary-color);
+	background: var(--primary);
 	color: var(--white);
 }

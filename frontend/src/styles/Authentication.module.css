@@ -10,9 +10,7 @@
 }
 .header > h1 {
 	font-weight: 700;
-	background-image: var(--gradient2);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	color: var(--primary);
 }
 .stroke {
 	position: absolute;
@@ -23,7 +21,11 @@
 .left {
 	flex: 0.55;
 	width: 100%;
-	min-height: 100vh;
+	height: 100vh;
+	overflow-y: scroll;
+}
+.left::-webkit-scrollbar {
+	display: none;
 }
 .form {
 	display: flex;
@@ -57,7 +59,7 @@
 	margin-top: 3rem;
 }
 .signup {
-	color: var(--grey);
+	color: var(--cool-grey);
 	font-weight: 600;
 }
 .signup span {
@@ -74,7 +76,7 @@
 	right: 0;
 	width: 45vw;
 	min-height: 100vh;
-	background-image: var(--gradient1);
+	background: var(--primary);
 }
 .genderInput {
 	display: flex;

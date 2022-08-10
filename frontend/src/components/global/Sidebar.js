@@ -7,6 +7,8 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { FiUsers } from "react-icons/fi";
 import { TbMessageShare } from "react-icons/tb";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
 
 const SidebarLink = ({ children, to }) => {
 	return (
@@ -18,26 +20,35 @@ const SidebarLink = ({ children, to }) => {
 
 const Sidebar = () => {
 	const links = [
-		{ to: "/", text: "Feed", icon: <MdOutlineDashboard /> },
-		{ to: "/", text: "My Community", icon: <FiUsers /> },
-		{ to: "/", text: "Messages", icon: <TbMessageShare /> },
-		{ to: "/", text: "Notifications", icon: <IoMdNotificationsOutline /> },
-		{ to: "/", text: "Explore", icon: <MdTravelExplore /> },
-		{ to: "/", text: "Profile", icon: <AiOutlineUser /> },
-		{ to: "/", text: "Settings", icon: <AiOutlineSetting /> },
-		{ to: "/", text: "Logout", icon: <RiLogoutCircleRLine /> },
+		{ to: "/", text: "Feed", icon: "/Icons/feed.png" },
+		{ to: "/", text: "My Friends", icon: "/Icons/friends.png" },
+		{ to: "/", text: "Messages", icon: "/Icons/messages.png" },
+		{ to: "/", text: "Notifications", icon: "/Icons/notification.png" },
+		{ to: "/", text: "Explore", icon: "/Icons/explore.png" },
+		{ to: "/", text: "Profile", icon: "/Icons/profile.png" },
+		{ to: "/", text: "Settings", icon: "/Icons/setting.png" },
 	];
+	const dispatch = useDispatch();
+	const handleLogout = () => {
+		Cookies.set("user", "");
+		dispatch({ type: "userLogout" });
+		window.location.reload();
+	};
 	return (
 		<div className={classes.sidebar}>
 			<ul className={classes.sidebarLinks}>
 				{links.map((link, index) => {
 					return (
 						<SidebarLink to={link.to} key={index}>
-							{link.icon}
+							<img className="svgIcon" src={link.icon} alt="icon" />
 							{link.text}
 						</SidebarLink>
 					);
 				})}
+				<li className={classes.sidebarLink} onClick={handleLogout}>
+					<img className="svgIcon" src="/Icons/logout.png" alt="icon" />
+					Logout
+				</li>
 			</ul>
 		</div>
 	);

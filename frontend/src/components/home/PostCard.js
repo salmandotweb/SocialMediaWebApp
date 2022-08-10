@@ -23,13 +23,15 @@ const PostCard = () => {
 			<div className={classes.options}>
 				<div className={classes.optionBtns}>
 					<button className={`btn ${classes.optionBtn}`}>
-						<HiOutlineVideoCamera /> Live Video
+						<img src="/icons/live.png" alt="icon" className="svgIcon" /> Live
+						Video
 					</button>
 					<button className={`btn ${classes.optionBtn}`}>
-						<HiOutlinePhotograph /> Photo/Video
+						<img src="/icons/gallery.png" alt="icon" className="svgIcon" />
+						Photo/Video
 					</button>
 					<button className={`btn ${classes.optionBtn}`}>
-						<BsEmojiSmile />
+						<img src="/icons/emoji.png" alt="icon" className="svgIcon" />
 						Feeling
 					</button>
 				</div>

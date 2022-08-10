@@ -21,6 +21,6 @@ router.get("/register", (req, res) => {
 router.post("/register", register);
 router.post("/activate", authUser, activeAccount);
 router.post("/login", login);
-router.post("/sendVerificationEmail", sendVerification);
+router.post("/sendVerificationEmail", authUser, sendVerification);
 
 module.exports = router;
