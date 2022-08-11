@@ -1,9 +1,8 @@
 .postCard {
-	width: 60rem;
-	background: var(--white);
-	padding: 2rem 1.5rem;
+	width: 70rem;
+	background: var(--secondary-dark);
+	padding: 1.5rem 1.5rem;
 	border-radius: 1rem;
-	box-shadow: var(--shadow-4);
 }
 .header {
 	display: flex;
@@ -19,7 +18,7 @@
 .postInput {
 	border-radius: 0.7rem;
 	border: 0;
-	background: #f6f7f9;
+	background: var(--icons-bg-color);
 	font-size: 1.4rem;
 }
 .options {
@@ -27,6 +26,8 @@
 	align-items: center;
 	justify-content: space-between;
 	margin-top: 2rem;
+	padding-top: 1rem;
+	border-top: 0.1rem solid var(--light-dark);
 }
 .options > button {
 	font-size: 1.6rem;
@@ -34,31 +35,38 @@
 	transition: 250ms all;
 }
 .options > button:hover {
-	background: var(--primary);
+	background: var(--btn-bg-color);
 }
 .optionBtns {
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: space-around;
+	width: 100%;
 }
 .optionBtn {
 	background: none;
 	font-size: 1.4rem;
-	color: var(--primary);
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	transition: 250ms all;
-	padding: 0.7rem 1rem;
+	padding: 0.7rem 1.5rem;
+	color: var(--light-text);
+	width: 100%;
 }
 .optionBtn:hover {
-	color: var(--white);
-	background-color: var(--primary);
+	background: var(--light-dark);
 }
 .optionBtn:not(:last-child) {
 	margin-right: 0.5rem;
 }
-.optionBtn > svg {
+.optionBtn img {
 	margin-right: 0.5rem;
-	font-size: 1.6rem;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+.optionBtn svg {
+	margin-right: 0.5rem;
+	width: 2.3rem;
+	height: 2.3rem;
 }

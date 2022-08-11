@@ -16,12 +16,21 @@
 	--light-grey: #aaaaaa;
 	--background: rgb(248, 248, 248);
 	--shadow-4: 0 0.4rem 1rem rgba(0, 0, 0, 0.03);
+	/* dark mode colors */
+	--primary-dark: #18191a;
+	--secondary-dark: #242526;
+	--light-dark: #3a3b3c;
+	--icons-bg-color: #303031;
+	--text-color: #e4e6eb;
+	--light-text: #b0b3b0;
+	--btn-bg-color: #1e90ff;
+	--shadow-4: 0 0.05rem 0.1rem rgba(255, 255, 255, 0.3);
 }
 body {
 	font-family: "Space Grotesk", sans-serif;
 	font-size: 1.6rem;
-	background: var(--white);
-	color: var(--primary);
+	background: var(--primary-dark);
+	color: var(--text-color);
 	overflow-x: hidden;
 }
 html {
@@ -42,6 +51,7 @@ input {
 	box-shadow: rgba(0, 0, 0, 0.2);
 	font-family: inherit;
 	font-weight: 500;
+	color: var(--text-color);
 }
 input::placeholder {
 	color: var(--light-grey);
@@ -55,7 +65,7 @@ input::placeholder {
 	font-size: 1.6rem;
 	font-weight: 600;
 	cursor: pointer;
-	background: var(--primary);
+	background: var(--btn-bg-color);
 	color: var(--white);
 }
 button {
@@ -83,8 +93,8 @@ button:active {
 	cursor: pointer;
 }
 .svgIcon {
-	width: 3rem;
-	height: 3rem;
+	width: 3.2rem;
+	height: 3.2rem;
 	object-fit: cover;
 	margin-right: 1rem;
 }
@@ -93,4 +103,7 @@ button:active {
 	height: 2rem;
 	object-fit: cover;
 	margin-right: 0.5rem;
+}
+.redirecting {
+	color: var(--btn-bg-color);
 }

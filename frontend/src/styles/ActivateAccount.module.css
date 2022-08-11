@@ -12,8 +12,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: var(--white);
-	box-shadow: var(--shadow-4);
+	background-color: var(--secondary-dark);
+	color: var(--text-color);
 	border-radius: 1rem;
 	padding: 2rem;
 	display: flex;

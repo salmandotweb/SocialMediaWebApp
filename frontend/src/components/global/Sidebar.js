@@ -7,7 +7,7 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { FiUsers } from "react-icons/fi";
 import { TbMessageShare } from "react-icons/tb";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
 const SidebarLink = ({ children, to }) => {
@@ -19,7 +19,13 @@ const SidebarLink = ({ children, to }) => {
 };
 
 const Sidebar = () => {
+	const { user } = useSelector((state) => state.user);
 	const links = [
+		{
+			to: "/",
+			text: `${user.firstName} ${user.lastName}`,
+			icon: `${user.picture}`,
+		},
 		{ to: "/", text: "Feed", icon: "/Icons/feed.png" },
 		{ to: "/", text: "My Friends", icon: "/Icons/friends.png" },
 		{ to: "/", text: "Messages", icon: "/Icons/messages.png" },

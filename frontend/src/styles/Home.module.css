@@ -1,6 +1,6 @@
 .feedContainer {
-	background: var(--background);
 	width: 100%;
+	flex: 3;
 	padding: 3rem;
 	min-height: calc(100vh - 10rem);
 	display: flex;
@@ -11,7 +11,7 @@
 	display: none;
 }
 .postsContainer {
-	margin-top: 5rem;
+	margin-top: 2rem;
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;

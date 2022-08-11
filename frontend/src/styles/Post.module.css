@@ -1,9 +1,7 @@
 .postContainer {
-	width: 60rem;
-	background: var(--white);
-	padding: 1.5rem 1rem;
+	width: 70rem;
+	background: var(--secondary-dark);
 	border-radius: 1rem;
-	box-shadow: var(--shadow-4);
 }
 .postContainer:not(:last-child) {
 	margin-bottom: 2.5rem;
@@ -13,6 +11,7 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	padding: 1.5rem 1rem 0 1rem;
 }
 .postHeaderLeft {
 	display: flex;
@@ -34,8 +33,8 @@
 }
 .postUserDetails > p {
 	font-size: 1.2rem;
-	color: var(--light-grey);
 	margin-top: 0.1rem;
+	color: var(--light-text);
 }
 .postHeaderRight {
 	padding-right: 1rem;
@@ -46,31 +45,32 @@
 }
 .postBody {
 	margin: 2rem 0 1rem 0;
-	padding: 0 1rem;
+	/* padding: 0 1rem; */
 }
 .postBody > p {
 	font-size: 1.5rem;
 	font-weight: 500;
-	color: var(--primary);
+	padding: 0rem 1.5rem;
 }
 .postImage {
 	width: 100%;
-	height: 35rem;
+	height: 50rem;
 	object-fit: cover;
-	border-radius: 1rem;
+	/* border-radius: 1rem; */
 	margin-top: 1rem;
 }
 .postFooter {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding: 0rem 1rem;
 }
 .postReactions {
 	padding: 0 1rem;
 }
 .postReactions > img {
-	width: 1.7rem;
-	height: 1.7rem;
+	width: 2rem;
+	height: 2rem;
 	object-fit: cover;
 	border-radius: 50%;
 	margin-right: 0.5rem;
@@ -88,19 +88,19 @@
 .postFooterRight > p {
 	font-size: 1.3rem;
 	cursor: pointer;
-	color: var(--light-grey);
+	color: var(--light-text);
 }
 .postFooterRight > p:not(:last-child) {
 	margin-right: 1rem;
 }
 .postOptions {
-	border-top: 0.1rem solid #eee;
-	border-bottom: 0.1rem solid #eee;
+	border-top: 0.1rem solid var(--light-dark);
+	border-bottom: 0.1rem solid var(--light-dark);
 	margin: 1rem 0;
-	padding: 0.8rem 1rem;
+	padding: 1rem 2rem;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 	width: 100%;
 }
 .postOption {
@@ -109,8 +109,8 @@
 	justify-content: flex-start;
 	padding: 0.3rem 0;
 	background: none;
-	color: var(--primary);
 	font-size: 1.4rem;
+	color: var(--light-text);
 }
 .postOption > svg {
 	margin-right: 0.5rem;
@@ -119,6 +119,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding: 1.5rem 1rem;
 }
 .loggedUserComment {
 	width: 100%;
@@ -130,8 +131,7 @@
 	outline: none;
 	border-radius: 0.7rem;
 	font-size: 1.3rem;
-	color: var(--primary);
-	background: var(--background);
+	background: var(--icons-bg-color);
 }
 .loggedUserOptions > button {
 	background: none;

@@ -19,7 +19,7 @@ const ActivateModal = ({ title, text, icon }) => {
 					{icon}
 					<h1>{title}</h1>
 					<p>{text}</p>
-					<p>Redirecting...</p>
+					<p className="redirecting">Redirecting...</p>
 				</div>
 			</div>
 		</>

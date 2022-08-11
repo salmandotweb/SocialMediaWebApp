@@ -1,0 +1,88 @@
+.storiesContainer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 2rem;
+	background: var(--secondary-dark);
+	width: 70rem;
+	border-radius: 1rem;
+	padding: 2rem 1rem;
+	overflow-x: scroll;
+}
+.storiesContainer::-webkit-scrollbar {
+	display: none;
+}
+.story {
+	position: relative;
+	min-width: 12rem;
+	height: 20rem;
+	cursor: pointer;
+	transition: 250ms all;
+}
+.story:hover {
+	transform: scale(1.03);
+}
+.story:not(:last-child) {
+	margin-right: 1rem;
+}
+.story > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 0.8rem;
+}
+.storyProfile {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	width: 4rem;
+	height: 4rem;
+}
+.storyProfile > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border: 0.28rem solid var(--btn-bg-color);
+}
+.CreateStoryContainer {
+	position: relative;
+	min-width: 12rem;
+	height: 20rem;
+	cursor: pointer;
+	transition: 250ms all;
+	margin-right: 1rem;
+	background: var(--primary-dark);
+	border-radius: 0.8rem;
+}
+.CreateStoryContainer:hover {
+	transform: scale(1.03);
+}
+.CreateStoryContainer > img {
+	width: 100%;
+	height: 75%;
+	object-fit: cover;
+	border-top-left-radius: 0.8rem;
+	border-top-right-radius: 0.8rem;
+}
+.createStory {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	margin-top: -2rem;
+}
+.createBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5rem;
+	width: 3rem;
+	height: 3rem;
+	background-color: var(--btn-bg-color);
+}
+.createStory > p {
+	font-size: 1.2rem;
+	font-weight: 500;
+	margin-top: 0.5rem;
+}

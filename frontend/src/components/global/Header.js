@@ -9,15 +9,11 @@ const Header = () => {
 		<div className={classes.header}>
 			<div className={classes.left}>
 				<div className={classes.logo}>
-					<img src="/images/favicon.png" alt="logo" />
+					<img src="/images/Clickbay.png" alt="logo" />
 				</div>
 				<div className={classes.searchInput}>
 					<FiSearch />
-					<input
-						type="text"
-						placeholder="Search for something here..."
-						className="input"
-					/>
+					<input type="text" placeholder="Search Clickbay" className="input" />
 				</div>
 			</div>
 			<div className={classes.right}>

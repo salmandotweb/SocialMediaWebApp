@@ -2,11 +2,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 2rem 3rem;
+	padding: 1rem 3rem;
 	width: 100%;
 	position: sticky;
 	top: 0;
-	background: var(--white);
+	background: var(--secondary-dark);
+	box-shadow: var(--shadow-4);
 }
 .left {
 	display: flex;
@@ -23,14 +24,15 @@
 	height: 4rem;
 	object-fit: cover;
 	margin-right: 1rem;
+	border-radius: 5rem;
 }
 .searchInput {
-	width: 30rem;
+	width: 25rem;
 	display: flex;
 	align-items: center;
-	padding: 0.8rem 1rem;
+	padding: 1rem;
 	border-radius: 3rem;
-	border: 0.15rem solid #cccccc;
+	background-color: var(--icons-bg-color);
 }
 .searchInput > svg {
 	color: var(--grey);
@@ -50,7 +52,6 @@
 }
 .profile > h3 {
 	font-size: 1.6rem;
-	color: var(--primary) !important;
 }
 .profile > h3 > span {
 	margin-right: 0.5rem;

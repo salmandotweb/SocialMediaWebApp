@@ -3,7 +3,7 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	background: var(--primary);
+	background: var(--btn-bg-color);
 	color: var(--white);
 	font-size: 1.4rem;
 	padding: 0.5rem;
