@@ -112,7 +112,7 @@
 	font-size: 1.4rem;
 	color: var(--light-text);
 }
-.postOption > svg {
+.postOption > img {
 	margin-right: 0.5rem;
 }
 .loggedUserOptions {

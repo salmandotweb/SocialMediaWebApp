@@ -48,15 +48,19 @@ const Post = () => {
 			</div>
 			<div className={classes.postOptions}>
 				<button className={`btn ${classes.postOption}`}>
-					<img src="/reacts/like.svg" alt="icon" className="optionsIcon" />
+					<img src="/images/likeBtn.png" alt="icon" className="optionsIcon" />
 					Like
 				</button>
 				<button className={`btn ${classes.postOption}`}>
-					<img src="/icons/comments.png" alt="icon" className="optionsIcon" />
+					<img
+						src="/images/commentsBtn.png"
+						alt="icon"
+						className="optionsIcon"
+					/>
 					Comments
 				</button>
 				<button className={`btn ${classes.postOption}`}>
-					<img src="/icons/share.png" alt="icon" className="optionsIcon" />
+					<img src="/images/shareBtn.png" alt="icon" className="optionsIcon" />
 					Share
 				</button>
 			</div>
@@ -74,7 +78,7 @@ const Post = () => {
 					/>
 				</div>
 				<button className="btn">
-					<img src="/icons/send.png" alt="icon" className="svgIcon" />
+					<img src="/images/sendBtn.png" alt="icon" className="svgIcon" />
 				</button>
 			</div>
 		</div>

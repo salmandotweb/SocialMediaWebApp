@@ -47,12 +47,12 @@
 .CreateStoryContainer {
 	position: relative;
 	min-width: 12rem;
-	height: 20rem;
+	height: 20.3rem;
 	cursor: pointer;
 	transition: 250ms all;
 	margin-right: 1rem;
 	background: var(--primary-dark);
-	border-radius: 0.8rem;
+	border-radius: 1rem;
 }
 .CreateStoryContainer:hover {
 	transform: scale(1.03);
