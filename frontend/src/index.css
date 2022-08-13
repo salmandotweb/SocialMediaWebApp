@@ -53,7 +53,7 @@ a {
 
 input {
 	border: 0.15rem solid #cccccc;
-	border-radius: var(--border-radius);
+	border-radius: 0.7rem;
 	padding: 1rem;
 	font-size: 1.6rem;
 	width: 100%;
