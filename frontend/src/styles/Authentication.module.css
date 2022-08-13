@@ -131,6 +131,19 @@
 .birthdayContainer select::-webkit-scrollbar {
 	display: none;
 }
+.forgetPassword {
+	margin-bottom: 1rem;
+	text-align: right;
+}
+.forgetPassword span {
+	color: var(--light-text);
+	cursor: pointer;
+	transition: 250ms all;
+	font-size: 1.4rem;
+}
+.forgetPassword span:hover {
+	color: var(--text-color);
+}
 @media screen and (max-width: 1024px) {
 	.right {
 		display: none;

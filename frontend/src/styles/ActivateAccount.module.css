@@ -14,7 +14,7 @@
 	transform: translate(-50%, -50%);
 	background-color: var(--secondary-dark);
 	color: var(--text-color);
-	border-radius: 1rem;
+	border-radius: var(--border-radius);
 	padding: 2rem;
 	display: flex;
 	align-items: center;

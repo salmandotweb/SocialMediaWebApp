@@ -4,6 +4,7 @@ import ActivateAccount from "./pages/ActivateAccount";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ResetPassword from "./pages/ResetPassword";
 import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 
@@ -22,6 +23,7 @@ function App() {
 					<Route path="/register" element={<Register />} />
 					<Route path="/login" element={<Login />} />
 				</Route>
+				<Route path="/forget-password" element={<ResetPassword />} />
 			</Routes>
 		</>
 	);

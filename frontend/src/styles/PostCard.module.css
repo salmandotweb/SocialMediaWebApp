@@ -2,7 +2,7 @@
 	width: 70rem;
 	background: var(--secondary-dark);
 	padding: 1.5rem 1.5rem;
-	border-radius: 1rem;
+	border-radius: var(--border-radius);
 }
 .header {
 	display: flex;

@@ -86,6 +86,11 @@ const LoginForm = () => {
 							placeholder="Password"
 							onChange={handleOnChange}
 						/>
+						<p className={classes.forgetPassword}>
+							<Link to="/forget-password">
+								<span>Forget password?</span>
+							</Link>
+						</p>
 						<button type="submit" className="btn">
 							{loading ? (
 								<BeatLoader color="#fff" loading={loading} size={10} />

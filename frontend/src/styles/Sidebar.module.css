@@ -10,12 +10,73 @@
 .sidebar a {
 	width: 100%;
 }
+.profileCard {
+	background: var(--secondary-dark);
+	padding: 2rem 1rem;
+	border-radius: var(--border-radius);
+}
+.profileCardHeader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.profileCardHeader img {
+	width: 5rem;
+	height: 5rem;
+	margin-bottom: 1rem;
+}
+.profileCardHeader > div {
+	text-align: center;
+}
+.profileCardHeader > div > h4 {
+	font-size: 1.7rem;
+}
+.profileCardHeader > div > p {
+	font-size: 1.3rem;
+	color: var(--light-text);
+	text-transform: lowercase;
+	margin-top: 0.2rem;
+}
+.userInfo {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: 2rem;
+}
+.userInfo > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.userInfo h4 {
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+.userInfo p {
+	margin-top: 0.5rem;
+	font-weight: 600;
+}
 .sidebarLinks {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	justify-content: center;
+	justify-content: flex-start;
+	margin-top: 2rem;
+	background: var(--secondary-dark);
+	border-radius: var(--border-radius);
 }
+/* .sidebarLinks::-webkit-scrollbar {
+	width: 0.5rem;
+}
+.sidebarLinks::-webkit-scrollbar-thumb {
+	background: var(--light-dark);
+	border-radius: 0.5rem;
+}
+.sidebarLinks::-webkit-scrollbar-track {
+	background: var(--secondary-dark);
+} */
 .sidebarLinks li {
 	display: flex;
 	align-items: center;
@@ -23,6 +84,10 @@
 	font-size: 1.7rem;
 	font-weight: 600;
 	font-size: 1.5rem;
+}
+.sidebarLinks img {
+	width: 3.5rem;
+	height: 3.5rem;
 }
 .sidebarLinks img:first-child {
 	border-radius: 50%;
@@ -32,6 +97,7 @@
 	width: 100%;
 	border-radius: 0.5rem;
 	transition: 250ms all;
+	font-size: 1.6rem !important;
 }
 .sidebarLink:not(:last-child) {
 	margin-bottom: 0.5rem;
