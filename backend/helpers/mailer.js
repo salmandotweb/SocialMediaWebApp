@@ -57,3 +57,45 @@ exports.sendVerificationEmail = (email, name, url) => {
 		}
 	});
 };
+
+exports.sendEmailCode = (email, name, code) => {
+	oauth2Client.setCredentials({
+		refresh_token: MAILING_REFRESH,
+	});
+
+	const accessToken = oauth2Client.getAccessToken();
+
+	const smtpTransport = nodemailer.createTransport({
+		service: "gmail",
+		auth: {
+			type: "OAuth2",
+			user: EMAIL,
+			pass: PASSWORD,
+			clientId: MAILING_ID,
+			clientSecret: MAILING_SECRET,
+			refreshToken: MAILING_REFRESH,
+			accessToken,
+		},
+	});
+
+	const mailOptions = {
+		from: EMAIL,
+		to: email,
+		subject: "Reset your Clickbay password",
+		html: `
+        <h3>Hi ${name},</h3>
+        <p>Thank you for registering with us. Please click the link below to verify your email address.</p>
+		<p>Your verification code is: ${code}</p>
+        <hr />
+        <p>This email may contain sensitive information</p>
+    `,
+	};
+
+	smtpTransport.sendMail(mailOptions, (error, info) => {
+		if (error) {
+			console.log(error);
+		} else {
+			console.log("Email sent: " + info.response);
+		}
+	});
+};

@@ -4,6 +4,10 @@ const {
 	activeAccount,
 	login,
 	sendVerification,
+	findUser,
+	sendResetCode,
+	validateResetCode,
+	changePassword,
 } = require("../controllers/user");
 const { authUser } = require("../middlewares/auth");
 
@@ -22,5 +26,9 @@ router.post("/register", register);
 router.post("/activate", authUser, activeAccount);
 router.post("/login", login);
 router.post("/sendVerificationEmail", authUser, sendVerification);
+router.post("/findUser", findUser);
+router.post("/sendResetCode", sendResetCode);
+router.post("/validateResetCode", validateResetCode);
+router.post("/changePassword", changePassword);
 
 module.exports = router;

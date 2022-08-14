@@ -1,16 +1,30 @@
-import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import { HiArrowLeft } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import LoginInput from "../components/inputs/LoginInput";
+import * as Yup from "yup";
+import ChangePassword from "../components/login/ChangePassword";
+import CodeVerification from "../components/login/CodeVerification";
+import SearchAccount from "../components/login/SearchAccount";
+import SendEmail from "../components/login/SendEmail";
 import headerClasses from "../styles/Header.module.css";
 import classes from "../styles/ResetPassword.module.css";
 
 const ResetPassword = () => {
 	const { user } = useSelector((state) => state.user);
+	const [showCard, setShowCard] = useState(0);
 	const [email, setEmail] = useState("");
+	const [code, setCode] = useState("");
+	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
+	const [userInfo, setUserInfo] = useState("");
 	const [error, setError] = useState("");
+
+	const emailSearchSchema = Yup.object({
+		email: Yup.string()
+			.email("Invalid email address")
+			.required("Email is Required"),
+	});
 
 	return (
 		<>
@@ -41,38 +55,48 @@ const ResetPassword = () => {
 				</div>
 			</div>
 			<div className={classes.forgetPasswordPage}>
-				<div className={classes.forgetPasswordCard}>
-					<h1>Find your account</h1>
-					<p>Please enter your email address to search for your account.</p>
-					<Formik enableReinitialize initialValues={{ email }}>
-						{(formik) => {
-							return (
-								<Form>
-									<LoginInput
-										htmlFor="email"
-										name="email"
-										type="email"
-										placeholder="Enter your email address"
-										onchange={(e) => setEmail(e.target.value)}
-									/>
-									<div className={classes.buttonsContainer}>
-										<Link to="/">
-											<button
-												type="submit"
-												className={`btn ${classes.cancelBtn}`}>
-												Cancel
-											</button>
-										</Link>
-										<button type="submit" className="btn">
-											Search
-										</button>
-									</div>
-								</Form>
-							);
-						}}
-					</Formik>
-					{error && <p className={`error ${classes.error}`}>{error}</p>}
-				</div>
+				{showCard === 0 && (
+					<SearchAccount
+						email={email}
+						setEmail={setEmail}
+						error={error}
+						setError={setError}
+						emailSearchSchema={emailSearchSchema}
+						setUserInfo={setUserInfo}
+						setShowCard={setShowCard}
+					/>
+				)}
+				{showCard === 1 && userInfo && (
+					<SendEmail
+						userInfo={userInfo}
+						setUserInfo={setUserInfo}
+						email={email}
+						error={error}
+						setError={setError}
+						setShowCard={setShowCard}
+					/>
+				)}
+				{showCard === 2 && (
+					<CodeVerification
+						code={code}
+						email={email}
+						setCode={setCode}
+						error={error}
+						setError={setError}
+						setShowCard={setShowCard}
+					/>
+				)}
+				{showCard === 3 && (
+					<ChangePassword
+						email={email}
+						password={password}
+						setPassword={setPassword}
+						confirmPassword={confirmPassword}
+						setConfirmPassword={setConfirmPassword}
+						error={error}
+						setError={setError}
+					/>
+				)}
 			</div>
 		</>
 	);
