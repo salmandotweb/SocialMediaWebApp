@@ -1,0 +1,122 @@
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(0.6rem);
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.createPostModal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	background: var(--primary-dark);
+	width: 50rem;
+	min-height: 30rem;
+	border-radius: var(--border-radius);
+	padding: 2rem;
+}
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 0.15rem solid var(--secondary-dark);
+	padding-bottom: 1rem;
+}
+.closeBtn {
+	border: 0;
+	cursor: pointer;
+	background: var(--secondary-dark);
+	color: var(--text-color);
+	height: 3rem;
+	width: 3rem;
+	border-radius: 5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.profile {
+	padding: 1.5rem 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.profile > img {
+	margin-right: 1rem;
+}
+.profile h4 {
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+.profile svg {
+	font-size: 1.2rem;
+	color: var(--light-text);
+	margin-right: 0.3rem;
+}
+.profile p {
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+	color: var(--light-text);
+	margin-top: 0.3rem;
+}
+.postBackgroundOptions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.postBackgroundOptions img {
+	width: 3.5rem;
+	height: 3.5rem;
+	object-fit: cover;
+	cursor: pointer;
+}
+.postBackgroundOptions svg {
+	width: 2.5rem;
+	height: 2.5rem;
+	cursor: pointer;
+	color: var(--light-text);
+	transition: 250ms all;
+}
+.postBackgroundOptions svg:hover {
+	color: var(--text-color);
+}
+.postBackgroundOptions svg:active {
+	transform: scale(0.98);
+}
+.addToPost {
+	margin-top: 2rem;
+	background: none;
+	border: 0.1rem solid var(--light-dark);
+	padding: 1.5rem 1rem;
+	border-radius: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.addToPostOptions svg {
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+}
+.postBtn {
+	width: 100%;
+	margin-top: 1rem;
+	font-size: 1.5rem;
+	padding: 1rem;
+}
+.modalBody {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+}
+.modalBody svg {
+	margin-top: 1rem;
+}

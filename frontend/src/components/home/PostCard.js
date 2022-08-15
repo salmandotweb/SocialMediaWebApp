@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { HiOutlineVideoCamera, HiOutlinePhotograph } from "react-icons/hi";
-import { BsEmojiSmile } from "react-icons/bs";
 import classes from "../../styles/PostCard.module.css";
+import CreatePostModal from "../global/CreatePostModal";
 
 const PostCard = () => {
 	const { user } = useSelector((state) => state.user);
+	const [showPostModal, setShowPostModal] = useState(false);
+	const handleOnInputFocus = () => {
+		setShowPostModal(true);
+	};
 	return (
 		<div className={classes.postCard}>
 			<div className={classes.header}>
@@ -18,6 +21,7 @@ const PostCard = () => {
 					type="text"
 					placeholder={`What's happening ${user?.firstName}?`}
 					className={`input ${classes.postInput}`}
+					onFocus={handleOnInputFocus}
 				/>
 			</div>
 			<div className={classes.options}>
@@ -48,6 +52,7 @@ const PostCard = () => {
 					</button>
 				</div>
 			</div>
+			{showPostModal && <CreatePostModal setShowPostModal={setShowPostModal} />}
 		</div>
 	);
 };

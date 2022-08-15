@@ -84,6 +84,18 @@ button {
 button:active {
 	transform: scale(0.98);
 }
+textarea {
+	border: 0;
+	border-radius: 0.7rem;
+	padding: 1rem;
+	font-size: 1.6rem;
+	width: 100%;
+	background: none;
+	font-family: inherit;
+	font-weight: 500;
+	color: var(--text-color);
+	resize: none;
+}
 .error {
 	margin-top: 1rem;
 	font-size: 1.4rem;
@@ -116,4 +128,18 @@ button:active {
 }
 .redirecting {
 	color: var(--btn-bg-color);
+}
+.emojiPickerWrapper {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.emojiPicker {
+	position: absolute;
+	right: -23.5rem;
+	top: -7rem;
+}
+.customModalBody .emojiPicker {
+	right: -24rem;
+	top: -19rem;
 }
