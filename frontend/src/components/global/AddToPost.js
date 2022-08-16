@@ -1,12 +1,15 @@
 import React from "react";
 import classes from "../../styles/CreatePostModal.module.css";
 
-const AddToPost = () => {
+const AddToPost = ({ setShowPreview }) => {
 	return (
 		<div className={classes.addToPost}>
 			<p>Add to your Post</p>
 			<div className={classes.addToPostOptions}>
-				<svg fill="#45BD62" viewBox="0 0 24 24">
+				<svg
+					fill="#45BD62"
+					viewBox="0 0 24 24"
+					onClick={() => setShowPreview(true)}>
 					<g fillRule="evenodd" transform="translate(-444 -156)">
 						<g>
 							<path

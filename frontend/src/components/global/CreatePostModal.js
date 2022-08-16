@@ -56,9 +56,10 @@ const CreatePostModal = ({ setShowPostModal }) => {
 						custom={true}
 						images={images}
 						setImages={setImages}
+						setShowPreview={setShowPreview}
 					/>
 				)}
-				<AddToPost />
+				<AddToPost setShowPreview={setShowPreview} />
 				<button className={`btn ${classes.postBtn}`}>Post</button>
 			</div>
 		</>

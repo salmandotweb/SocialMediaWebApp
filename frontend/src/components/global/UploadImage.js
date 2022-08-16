@@ -11,6 +11,7 @@ const UploadImage = ({
 	custom,
 	images,
 	setImages,
+	setShowPreview,
 }) => {
 	const uploadImageRef = useRef(null);
 	const handleImages = (e) => {
@@ -41,8 +42,13 @@ const UploadImage = ({
 				/>
 				{images && images.length ? (
 					<div className={classes.addImages}>
-						<div className="closeBtn">
+						<div className="closeBtn" onClick={() => setImages([])}>
 							<FaTimes />
+						</div>
+						<div
+							className={`${classes.addIcon} ${classes.addMoreImages}`}
+							onClick={() => uploadImageRef.current.click()}>
+							<MdAddPhotoAlternate />
 						</div>
 						<div
 							className={
@@ -56,7 +62,9 @@ const UploadImage = ({
 									? classes.images4
 									: images.length === 5
 									? classes.images5
-									: classes.images6
+									: images.length % 2 === 0
+									? classes.images6
+									: classes.images6 + " " + classes.images7
 							}>
 							{images.map((image, index) => (
 								<img key={index} src={image} alt="" />
@@ -66,7 +74,7 @@ const UploadImage = ({
 				) : (
 					<>
 						<div className={classes.addImages}>
-							<div className="closeBtn">
+							<div className="closeBtn" onClick={() => setShowPreview(false)}>
 								<FaTimes />
 							</div>
 							<div

@@ -3,6 +3,7 @@ const PORT = process.env.PORT || 8000;
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -14,6 +15,12 @@ let corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+app.use(
+	fileUpload({
+		useTempFiles: true,
+	})
+);
 
 app.use(express.json());
 
