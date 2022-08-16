@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { GiEarthAmerica } from "react-icons/gi";
 import { useSelector } from "react-redux";
@@ -11,6 +11,9 @@ const CreatePostModal = ({ setShowPostModal }) => {
 	const { user } = useSelector((state) => state.user);
 	const [postText, setPostText] = useState("");
 	const [showPreview, setShowPreview] = useState(true);
+	const [images, setImages] = useState([]);
+
+	console.log(images);
 
 	const handleShow = () => {
 		setShowPostModal(false);
@@ -51,6 +54,8 @@ const CreatePostModal = ({ setShowPostModal }) => {
 						setPostText={setPostText}
 						user={user}
 						custom={true}
+						images={images}
+						setImages={setImages}
 					/>
 				)}
 				<AddToPost />

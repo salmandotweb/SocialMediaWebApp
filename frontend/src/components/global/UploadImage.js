@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
+import { MdAddPhotoAlternate } from "react-icons/md";
+import { FaTimes } from "react-icons/fa";
 import classes from "../../styles/CreatePostModal.module.css";
 import EmojiPicker from "./EmojiPicker";
 
-const UploadImage = ({ postText, setPostText, user, custom }) => {
+const UploadImage = ({
+	postText,
+	setPostText,
+	user,
+	custom,
+	images,
+	setImages,
+}) => {
+	const uploadImageRef = useRef(null);
+	const handleImages = (e) => {
+		let files = Array.from(e.target.files);
+		files.forEach((file) => {
+			let reader = new FileReader();
+			reader.onload = (e) => {
+				setImages((images) => [...images, e.target.result]);
+			};
+			reader.readAsDataURL(file);
+		});
+	};
 	return (
 		<div className={classes.uploadImage}>
 			<EmojiPicker
@@ -11,6 +31,55 @@ const UploadImage = ({ postText, setPostText, user, custom }) => {
 				user={user}
 				custom={custom}
 			/>
+			<div className={classes.uploadImageContainer}>
+				<input
+					type="file"
+					multiple
+					hidden
+					ref={uploadImageRef}
+					onChange={handleImages}
+				/>
+				{images && images.length ? (
+					<div className={classes.addImages}>
+						<div className="closeBtn">
+							<FaTimes />
+						</div>
+						<div
+							className={
+								images.length === 1
+									? classes.images
+									: images.length === 2
+									? classes.images2
+									: images.length === 3
+									? classes.images3
+									: images.length === 4
+									? classes.images4
+									: images.length === 5
+									? classes.images5
+									: classes.images6
+							}>
+							{images.map((image, index) => (
+								<img key={index} src={image} alt="" />
+							))}
+						</div>
+					</div>
+				) : (
+					<>
+						<div className={classes.addImages}>
+							<div className="closeBtn">
+								<FaTimes />
+							</div>
+							<div
+								className={classes.addIcon}
+								onClick={() => uploadImageRef.current.click()}>
+								<MdAddPhotoAlternate />
+							</div>
+							<h3>Add Photos/Videos</h3>
+							<p>on drag and drop</p>
+						</div>
+					</>
+				)}
+			</div>
 		</div>
 	);
 };

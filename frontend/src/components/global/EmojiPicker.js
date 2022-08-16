@@ -32,7 +32,7 @@ const EmojiPicker = ({ postText, setPostText, user, custom }) => {
 					value={postText}
 					onChange={(e) => setPostText(e.target.value)}
 					cols="30"
-					rows={custom ? "2" : "5"}
+					rows={custom ? "3" : "5"}
 					maxLength="150"
 					placeholder={`What's on your mind, ${user?.firstName}`}></textarea>
 				<div className="emojiPickerWrapper">

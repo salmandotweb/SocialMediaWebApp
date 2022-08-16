@@ -120,3 +120,142 @@
 .modalBody svg {
 	margin-top: 1rem;
 }
+.uploadImageContainer {
+	background: 0;
+	border: 0.1rem solid var(--light-dark);
+	padding: 0.8rem;
+	border-radius: var(--border-radius);
+}
+.addImages {
+	background: var(--secondary-dark);
+	min-height: 25rem;
+	max-height: 35rem;
+	width: 100%;
+	border-radius: var(--border-radius);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: relative;
+}
+.addIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--light-dark);
+	border-radius: 50%;
+	height: 5.5rem;
+	width: 5.5rem;
+	cursor: pointer;
+	transition: 250ms all;
+}
+.addIcon:hover {
+	background: var(--primary-dark);
+}
+.addIcon:active {
+	transform: scale(0.98);
+}
+.addImages svg {
+	font-size: 3.5rem;
+	color: var(--light-text);
+}
+.addImages h3 {
+	font-size: 1.6rem;
+	margin-top: 1rem;
+}
+.addImages p {
+	font-size: 1.2rem;
+	color: var(--light-text);
+}
+.images {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border-radius: var(--border-radius);
+}
+.images img {
+	width: 100%;
+	object-fit: cover;
+}
+.images2 {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border-radius: var(--border-radius);
+}
+.images2 img {
+	width: 50%;
+	min-height: 25rem;
+	max-height: 35rem;
+	object-fit: cover;
+}
+.images3 {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	overflow: hidden;
+	border-radius: var(--border-radius);
+}
+.images3 img {
+	width: 50%;
+	min-height: 15rem;
+	max-height: 15rem;
+	object-fit: cover;
+}
+.images4 {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	overflow: hidden;
+	border-radius: var(--border-radius);
+}
+.images4 img {
+	width: 50%;
+	min-height: 15rem;
+	max-height: 15rem;
+	object-fit: cover;
+}
+.images5 {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	overflow: hidden;
+	border-radius: var(--border-radius);
+}
+.images5 img {
+	width: 50%;
+	min-height: 10rem;
+	max-height: 10rem;
+	object-fit: cover;
+}
+.images6 {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	overflow: hidden;
+	border-radius: var(--border-radius);
+}
+.images6 img {
+	width: 50%;
+	min-height: 10rem;
+	max-height: 10rem;
+	object-fit: cover;
+}
