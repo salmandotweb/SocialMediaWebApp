@@ -8,6 +8,8 @@ import EmojiPicker from "./EmojiPicker";
 import UploadImage from "./UploadImage";
 import axios from "axios";
 import BeatLoader from "react-spinners/BeatLoader";
+import dataUrlToBlob from "../../helpers/dataUrlToBlob";
+import { uploadImages } from "../../helpers/uploadImages";
 
 const CreatePostModal = ({ setShowPostModal, setPostCreated }) => {
 	const { user } = useSelector((state) => state.user);
@@ -16,12 +18,14 @@ const CreatePostModal = ({ setShowPostModal, setPostCreated }) => {
 	const [images, setImages] = useState([]);
 	const [background, setBackground] = useState("");
 	const [loading, setLoading] = useState(false);
+	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
 	const handleShow = () => {
 		setShowPostModal(false);
 	};
 
 	const handlePostSubmit = async () => {
+		setShowEmojiPicker(false);
 		try {
 			if (background) {
 				setLoading(true);
@@ -48,6 +52,66 @@ const CreatePostModal = ({ setShowPostModal, setPostCreated }) => {
 				setTimeout(() => {
 					setPostCreated(false);
 				}, 3000);
+			} else if (images && images.length) {
+				setLoading(true);
+				const postImages = images.map((image) => {
+					return dataUrlToBlob(image);
+				});
+				const path = `${user.username}/post Images`;
+				const formData = new FormData();
+				formData.append("path", path);
+				postImages.forEach((image) => {
+					formData.append("file", image);
+				});
+				const res = await uploadImages(user.token, path, formData);
+				const { data } = await axios.post(
+					`${process.env.REACT_APP_BASE_URL}/createPost`,
+					{
+						type: null,
+						text: postText,
+						images: res,
+						user: user.id,
+						background: null,
+					},
+					{
+						headers: {
+							Authorization: `Bearer ${user.token}`,
+						},
+					}
+				);
+				setPostCreated(true);
+				setPostText("");
+				setShowPostModal(false);
+				setTimeout(() => {
+					setPostCreated(false);
+				}, 3000);
+				setLoading(false);
+			} else if (postText) {
+				setLoading(true);
+				const { data } = await axios.post(
+					`${process.env.REACT_APP_BASE_URL}/createPost`,
+					{
+						type: null,
+						text: postText,
+						images: null,
+						user: user.id,
+						background: null,
+					},
+					{
+						headers: {
+							Authorization: `Bearer ${user.token}`,
+						},
+					}
+				);
+				setLoading(false);
+				setPostCreated(true);
+				setPostText("");
+				setShowPostModal(false);
+				setTimeout(() => {
+					setPostCreated(false);
+				}, 3000);
+			} else {
+				console.log("Nothing to submit");
 			}
 		} catch (error) {
 			setPostCreated(false);
@@ -59,6 +123,8 @@ const CreatePostModal = ({ setShowPostModal, setPostCreated }) => {
 		<>
 			<div className={classes.overlay} onClick={handleShow}></div>
 			<div className={classes.createPostModal}>
+				{loading && <div className={classes.fixedOverlay}></div>}
+
 				<div className={classes.header}>
 					<h2>Create Post</h2>
 					<button className={classes.closeBtn} onClick={handleShow}>
@@ -84,6 +150,8 @@ const CreatePostModal = ({ setShowPostModal, setPostCreated }) => {
 							user={user}
 							background={background}
 							setBackground={setBackground}
+							showEmojiPicker={showEmojiPicker}
+							setShowEmojiPicker={setShowEmojiPicker}
 						/>
 					</>
 				) : (
@@ -95,6 +163,8 @@ const CreatePostModal = ({ setShowPostModal, setPostCreated }) => {
 						images={images}
 						setImages={setImages}
 						setShowPreview={setShowPreview}
+						showEmojiPicker={showEmojiPicker}
+						setShowEmojiPicker={setShowEmojiPicker}
 					/>
 				)}
 				<AddToPost setShowPreview={setShowPreview} />

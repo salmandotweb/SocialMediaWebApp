@@ -10,3 +10,14 @@ exports.createPost = async (req, res) => {
 		});
 	}
 };
+
+exports.allPosts = async (req, res) => {
+	try {
+		const allPosts = await Post.find();
+		res.status(200).json(allPosts);
+	} catch (error) {
+		return res.json({
+			message: error.message,
+		});
+	}
+};

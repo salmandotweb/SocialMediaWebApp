@@ -4,17 +4,16 @@ import PostCard from "../components/home/PostCard";
 import Stories from "../components/home/Stories";
 import classes from "../styles/Home.module.css";
 
-const Home = ({ children }) => {
+const Home = ({ children, posts }) => {
 	return (
 		<div className={classes.feedContainer}>
 			{children}
 			<Stories />
 			<PostCard />
 			<div className={classes.postsContainer}>
-				<Post />
-				<Post />
-				<Post />
-				<Post />
+				{posts?.map((post) => (
+					<Post key={post?._id} />
+				))}
 			</div>
 		</div>
 	);

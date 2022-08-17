@@ -10,8 +10,9 @@ const EmojiPicker = ({
 	custom,
 	background,
 	setBackground,
+	showEmojiPicker,
+	setShowEmojiPicker,
 }) => {
-	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 	const [showBackgrounds, setshowBackgrounds] = useState(false);
 	const [cursorPosition, setCursorPosition] = useState();
 	const textref = useRef(null);
@@ -55,6 +56,10 @@ const EmojiPicker = ({
 		backgroundref.current.style.backgroundImage = "";
 		setBackground("");
 		backgroundref.current.classList.remove("backgroundStyling");
+	};
+
+	const emojiContainerHandler = () => {
+		setShowEmojiPicker((prev) => !prev);
 	};
 
 	return (
@@ -105,7 +110,7 @@ const EmojiPicker = ({
 						</div>
 					)}
 
-					<GrEmoji onClick={() => setShowEmojiPicker((prev) => !prev)} />
+					<GrEmoji onClick={emojiContainerHandler} />
 				</div>
 			</div>
 		</>
