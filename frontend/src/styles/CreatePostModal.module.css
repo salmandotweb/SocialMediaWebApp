@@ -120,6 +120,20 @@
 .modalBody svg {
 	margin-top: 1rem;
 }
+.textareaContainer {
+	width: 100%;
+}
+.emojiPickerWrapper {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 9999999999;
+}
+.emojiPicker {
+	position: absolute;
+	right: -27rem;
+	top: 14rem;
+}
 .uploadImageContainer {
 	background: 0;
 	border: 0.1rem solid var(--light-dark);
@@ -293,4 +307,33 @@
 .images6::-webkit-scrollbar-thumb,
 .images7::-webkit-scrollbar-thumb {
 	background: var(--light-dark);
+}
+.postBackgrounds {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.5rem;
+}
+.postBackgrounds img {
+	width: 3rem;
+	height: 3rem;
+	cursor: pointer;
+	object-fit: cover;
+	border-radius: 0.3rem;
+	animation: SlideIn 300ms ease;
+}
+.noneBackground {
+	width: 3rem;
+	height: 3rem;
+	cursor: pointer;
+	border-radius: 0.3rem;
+	background-color: var(--text-color);
+}
+@keyframes SlideIn {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
 }

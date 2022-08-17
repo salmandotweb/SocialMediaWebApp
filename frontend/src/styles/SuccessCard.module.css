@@ -1,0 +1,33 @@
+.successCard {
+	position: fixed;
+	right: 2rem;
+	bottom: 2rem;
+	z-index: 99999999;
+	background: var(--secondary-dark);
+	padding: 2rem;
+	border-radius: 0.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: show 0.5s ease;
+}
+.successCard p {
+	font-size: 1.4rem;
+}
+.successIcon {
+	width: 2rem;
+	height: 2rem;
+	object-fit: cover;
+	margin: 0;
+	margin-left: 0.5rem;
+}
+@keyframes show {
+	from {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

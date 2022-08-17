@@ -37,6 +37,7 @@ const UploadImage = ({
 					type="file"
 					multiple
 					hidden
+					accept="image/*"
 					ref={uploadImageRef}
 					onChange={handleImages}
 				/>

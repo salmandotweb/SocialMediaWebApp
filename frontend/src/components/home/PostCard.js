@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import classes from "../../styles/PostCard.module.css";
 import CreatePostModal from "../global/CreatePostModal";
+import SuccessCard from "../global/SuccessCard";
 
 const PostCard = () => {
 	const { user } = useSelector((state) => state.user);
 	const [showPostModal, setShowPostModal] = useState(false);
+	const [postCreated, setPostCreated] = useState(false);
 	const handleOnInputFocus = () => {
 		setShowPostModal(true);
 	};
@@ -52,7 +54,13 @@ const PostCard = () => {
 					</button>
 				</div>
 			</div>
-			{showPostModal && <CreatePostModal setShowPostModal={setShowPostModal} />}
+			{showPostModal && (
+				<CreatePostModal
+					setShowPostModal={setShowPostModal}
+					setPostCreated={setPostCreated}
+				/>
+			)}
+			{postCreated && <SuccessCard text="Post Created Successfully" />}
 		</div>
 	);
 };
