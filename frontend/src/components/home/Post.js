@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import classes from "../../styles/Post.module.css";
 
-const Post = () => {
+const Post = ({ post }) => {
 	const { user } = useSelector((state) => state.user);
 	return (
 		<div className={classes.postContainer}>
@@ -24,9 +24,7 @@ const Post = () => {
 				</div>
 			</div>
 			<div className={classes.postBody}>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur.
-				</p>
+				<p>{post?.text}</p>
 				<img
 					src="https://images.pexels.com/photos/2238318/pexels-photo-2238318.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 					alt=""

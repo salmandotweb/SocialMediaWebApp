@@ -12,7 +12,7 @@ const Home = ({ children, posts }) => {
 			<PostCard />
 			<div className={classes.postsContainer}>
 				{posts?.map((post) => (
-					<Post key={post?._id} />
+					<Post key={post?._id} post={post} />
 				))}
 			</div>
 		</div>
