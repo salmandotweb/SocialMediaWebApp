@@ -1,12 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "../../styles/Sidebar.module.css";
-import { AiOutlineSetting, AiOutlineUser } from "react-icons/ai";
-import { MdOutlineDashboard, MdTravelExplore } from "react-icons/md";
-import { RiLogoutCircleRLine } from "react-icons/ri";
-import { FiUsers } from "react-icons/fi";
-import { TbMessageShare } from "react-icons/tb";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
@@ -21,6 +15,11 @@ const SidebarLink = ({ children, to }) => {
 const Sidebar = () => {
 	const { user } = useSelector((state) => state.user);
 	const links = [
+		{
+			to: "/",
+			text: `${user?.firstName} ${user?.lastName}`,
+			icon: `${user?.picture}`,
+		},
 		{ to: "/", text: "Feed", icon: "/Icons/feed.png" },
 		{ to: "/", text: "My Friends", icon: "/Icons/friends.png" },
 		{ to: "/", text: "Messages", icon: "/Icons/messages.png" },
@@ -37,29 +36,6 @@ const Sidebar = () => {
 	};
 	return (
 		<div className={classes.sidebar}>
-			<div className={classes.profileCard}>
-				<div className={classes.profileCardHeader}>
-					<img src={user?.picture} className="profileImage" alt="logo" />
-					<div>
-						<h4>{`${user.firstName} ${user.lastName}`}</h4>
-						<p>{`@${user?.username}`}</p>
-					</div>
-				</div>
-				<div className={classes.userInfo}>
-					<div>
-						<h4>Posts</h4>
-						<p>0</p>
-					</div>
-					<div>
-						<h4>Friends</h4>
-						<p>0</p>
-					</div>
-					<div>
-						<h4>Followers</h4>
-						<p>0</p>
-					</div>
-				</div>
-			</div>
 			<ul className={classes.sidebarLinks}>
 				{links.map((link, index) => {
 					return (

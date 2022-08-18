@@ -36,6 +36,26 @@
 	margin-top: 0.1rem;
 	color: var(--light-text);
 }
+.updated {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.updated > p {
+	font-size: 1.6rem;
+	color: var(--light-text);
+	margin-top: 0.4rem;
+	margin-left: 0.5rem;
+}
+.date {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	text-transform: capitalize;
+}
+.date > svg {
+	margin-right: 0.5rem;
+}
 .postHeaderRight {
 	padding-right: 1rem;
 }
@@ -45,19 +65,122 @@
 }
 .postBody {
 	margin: 2rem 0 1rem 0;
-	/* padding: 0 1rem; */
 }
 .postBody > p {
 	font-size: 1.5rem;
 	font-weight: 500;
-	padding: 0rem 1.5rem;
+	padding: 0rem 2rem 0.5rem 2rem;
 }
 .postImage {
 	width: 100%;
-	height: 50rem;
-	object-fit: cover;
-	/* border-radius: 1rem; */
+	height: 70rem;
 	margin-top: 1rem;
+}
+.postImage > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.postImage2 {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 40rem;
+	margin-top: 1rem;
+}
+.postImage2 > img {
+	width: 50%;
+	height: 100%;
+	object-fit: cover;
+}
+.postImage3 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	width: 100%;
+	height: 60rem;
+	margin-top: 1rem;
+}
+.postImage3 > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.postImage3 > img:nth-child(1) {
+	grid-column: 1 / span 2;
+	grid-row: 1 / span 2;
+}
+.postImage4 {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 60rem;
+	margin-top: 1rem;
+}
+.postImage4 > img {
+	width: 50%;
+	height: 50%;
+	object-fit: cover;
+}
+.postImage5 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	width: 100%;
+	height: 70rem;
+	margin-top: 1rem;
+}
+.postImage5 img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.postImage5 img:nth-child(1) {
+	grid-column: 1 / span 2;
+	grid-row: 1 / span 2;
+}
+.moreImages {
+	position: relative;
+}
+.moreImages::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgb(0, 0, 0, 0.5);
+}
+.number {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 2rem;
+	font-weight: 800;
+	color: var(--text-color);
+}
+.postBody > .postBackground {
+	width: 100%;
+	height: 50rem;
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	color: var(--primary-dark);
+	font-weight: 500;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	object-fit: cover;
+	padding: 2rem;
+}
+.postText {
+	font-size: 1.8rem;
+	padding: 0.5rem 2rem 2rem 2rem;
 }
 .postFooter {
 	display: flex;

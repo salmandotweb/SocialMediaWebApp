@@ -2,41 +2,13 @@
 	padding: 0 1rem;
 	flex: 1;
 	position: sticky;
-	top: 8rem;
+	top: 6rem;
 }
 .sidebar li {
 	cursor: pointer;
 }
 .sidebar a {
 	width: 100%;
-}
-.profileCard {
-	background: var(--secondary-dark);
-	padding: 2rem 1rem;
-	border-radius: var(--border-radius);
-}
-.profileCardHeader {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
-.profileCardHeader img {
-	width: 5rem;
-	height: 5rem;
-	margin-bottom: 1rem;
-}
-.profileCardHeader > div {
-	text-align: center;
-}
-.profileCardHeader > div > h4 {
-	font-size: 1.7rem;
-}
-.profileCardHeader > div > p {
-	font-size: 1.3rem;
-	color: var(--light-text);
-	text-transform: lowercase;
-	margin-top: 0.2rem;
 }
 .userInfo {
 	display: flex;
@@ -64,8 +36,6 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	margin-top: 2rem;
-	background: var(--secondary-dark);
-	border-radius: var(--border-radius);
 }
 /* .sidebarLinks::-webkit-scrollbar {
 	width: 0.5rem;
