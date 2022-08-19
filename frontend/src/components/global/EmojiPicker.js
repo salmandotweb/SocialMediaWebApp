@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { GrEmoji } from "react-icons/gr";
 import Picker from "emoji-picker-react";
 import classes from "../../styles/CreatePostModal.module.css";
+import useClickOutside from "../../customHooks/useClickOutside";
 
 const EmojiPicker = ({
 	postText,
@@ -16,7 +17,10 @@ const EmojiPicker = ({
 	const [showBackgrounds, setshowBackgrounds] = useState(false);
 	const [cursorPosition, setCursorPosition] = useState();
 	const textref = useRef(null);
+	const emojiRef = useRef(null);
 	const backgroundref = useRef(null);
+
+	useClickOutside(emojiRef, () => setShowEmojiPicker(false));
 
 	const onEmojiClick = (e, { emoji }) => {
 		const ref = textref.current;
@@ -59,7 +63,7 @@ const EmojiPicker = ({
 	};
 
 	const emojiContainerHandler = () => {
-		setShowEmojiPicker((prev) => !prev);
+		setShowEmojiPicker(!showEmojiPicker);
 	};
 
 	return (
@@ -81,7 +85,9 @@ const EmojiPicker = ({
 						!custom ? "emojiPickerWrapper" : classes.emojiPickerWrapper
 					}>
 					{showEmojiPicker && (
-						<div className={!custom ? "emojiPicker" : classes.emojiPicker}>
+						<div
+							className={!custom ? "emojiPicker" : classes.emojiPicker}
+							ref={emojiRef}>
 							<Picker onEmojiClick={onEmojiClick} />
 						</div>
 					)}

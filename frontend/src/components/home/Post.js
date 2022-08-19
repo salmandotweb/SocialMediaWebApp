@@ -1,12 +1,16 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { IoEarthSharp } from "react-icons/io5";
 import Moment from "react-moment";
 import classes from "../../styles/Post.module.css";
+import ReactionsModal from "./ReactionsModal";
+import Comment from "./Comment";
+import { useState } from "react";
 
 const Post = ({ post }) => {
 	const { user } = useSelector((state) => state.user);
+	const [show, setShow] = useState(false);
+
 	return (
 		<div className={classes.postContainer}>
 			<div className={classes.postHeader}>
@@ -111,7 +115,11 @@ const Post = ({ post }) => {
 				</div>
 			</div>
 			<div className={classes.postOptions}>
-				<button className={`btn ${classes.postOption}`}>
+				<ReactionsModal show={show} setShow={setShow} />
+				<button
+					className={`btn ${classes.postOption}`}
+					onMouseEnter={() => setShow(true)}
+					onMouseLeave={() => setShow(false)}>
 					<img src="/images/likeBtn.png" alt="icon" className="optionsIcon" />
 					Like
 				</button>
@@ -128,23 +136,7 @@ const Post = ({ post }) => {
 					Share
 				</button>
 			</div>
-			<div className={classes.loggedUserOptions}>
-				<img
-					src={user?.picture}
-					alt={user?.firstName}
-					className="profileImage"
-				/>
-				<div className={classes.loggedUserComment}>
-					<input
-						type="text"
-						placeholder="Write a comment..."
-						className="input"
-					/>
-				</div>
-				<button className="btn">
-					<img src="/images/sendBtn.png" alt="icon" className="svgIcon" />
-				</button>
-			</div>
+			<Comment />
 		</div>
 	);
 };

@@ -139,6 +139,9 @@ textarea {
 	right: -23.5rem;
 	top: -7rem;
 }
+aside.emoji-picker-react {
+	box-shadow: 0 0 0 #fff !important;
+}
 .closeBtn {
 	position: absolute;
 	right: 1rem;
