@@ -1,0 +1,25 @@
+.postMenu {
+	background: var(--light-dark);
+	border-radius: var(--border-radius);
+	position: absolute;
+	top: 2rem;
+	right: 0rem;
+	width: 20rem;
+	z-index: 9999999999;
+	overflow: hidden;
+}
+.postMenuOption {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: pointer;
+	font-weight: 500;
+	padding: 1.5rem;
+	font-size: 1.5rem;
+}
+.postMenuOption:hover {
+	background: var(--primary-dark);
+}
+.postMenuOption > svg {
+	margin-right: 1rem;
+}

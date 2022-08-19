@@ -58,6 +58,7 @@
 }
 .postHeaderRight {
 	padding-right: 1rem;
+	position: relative;
 }
 .postHeaderRight > svg {
 	font-size: 2rem;

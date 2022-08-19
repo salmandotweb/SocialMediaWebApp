@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { IoEarthSharp } from "react-icons/io5";
 import Moment from "react-moment";
@@ -6,29 +5,32 @@ import classes from "../../styles/Post.module.css";
 import ReactionsModal from "./ReactionsModal";
 import Comment from "./Comment";
 import { useState } from "react";
+import PostMenu from "./PostMenu";
+import { useSelector } from "react-redux";
 
 const Post = ({ post }) => {
 	const { user } = useSelector((state) => state.user);
 	const [show, setShow] = useState(false);
+	const [showMenu, setShowMenu] = useState(false);
 
 	return (
 		<div className={classes.postContainer}>
 			<div className={classes.postHeader}>
 				<div className={classes.postHeaderLeft}>
 					<img
-						src={user?.picture}
-						alt={user?.firstName}
+						src={post?.user?.picture}
+						alt={post?.user?.firstName}
 						className={`profileImage ${classes.profileImage}`}
 					/>
 					<div className={classes.postUserDetails}>
 						{post?.type === null ? (
-							<h3>{`${user?.firstName} ${user?.lastName}`}</h3>
+							<h3>{`${post?.user?.firstName} ${post?.user?.lastName}`}</h3>
 						) : (
 							""
 						)}
 						{post?.type === "profilePicture" ? (
 							<div className={classes.updated}>
-								<h3>{`${user?.firstName} ${user?.lastName}`}</h3>
+								<h3>{`${post?.user?.firstName} ${post?.user?.lastName}`}</h3>
 								<p>{`has updated ${
 									post?.user.gender === "male" ? "his" : "her"
 								} profile picture.`}</p>
@@ -38,7 +40,7 @@ const Post = ({ post }) => {
 						)}
 						{post?.type === "coverPicture" ? (
 							<div className={classes.updated}>
-								<h3>{`${user?.firstName} ${user?.lastName}`}</h3>
+								<h3>{`${post?.user?.firstName} ${post?.user?.lastName}`}</h3>
 								<p>{`has updated ${
 									post?.user.gender === "male" ? "his" : "her"
 								} cover photo.`}</p>
@@ -57,7 +59,17 @@ const Post = ({ post }) => {
 					</div>
 				</div>
 				<div className={classes.postHeaderRight}>
-					<BiDotsHorizontalRounded />
+					{showMenu && (
+						<PostMenu
+							setShowMenu={setShowMenu}
+							images={post?.images?.length}
+							postUserID={post?.user._id}
+							userID={user.id}
+						/>
+					)}
+					<BiDotsHorizontalRounded
+						onClick={() => setShowMenu((prev) => !prev)}
+					/>
 				</div>
 			</div>
 			<div className={classes.postBody}>
