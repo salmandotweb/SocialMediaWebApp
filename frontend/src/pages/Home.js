@@ -68,7 +68,7 @@ const Home = ({ children }) => {
 
 	useEffect(() => {
 		getAllPosts();
-	}, []);
+	}, [posts]);
 
 	console.log(posts);
 

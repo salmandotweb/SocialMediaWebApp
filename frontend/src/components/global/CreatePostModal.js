@@ -11,10 +11,14 @@ import BeatLoader from "react-spinners/BeatLoader";
 import dataUrlToBlob from "../../helpers/dataUrlToBlob";
 import { uploadImages } from "../../helpers/uploadImages";
 
-const CreatePostModal = ({ setShowPostModal, setPostCreated }) => {
+const CreatePostModal = ({
+	setShowPostModal,
+	setPostCreated,
+	showPreview,
+	setShowPreview,
+}) => {
 	const { user } = useSelector((state) => state.user);
 	const [postText, setPostText] = useState("");
-	const [showPreview, setShowPreview] = useState(false);
 	const [images, setImages] = useState([]);
 	const [background, setBackground] = useState("");
 	const [loading, setLoading] = useState(false);

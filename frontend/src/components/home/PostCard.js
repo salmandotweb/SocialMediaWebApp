@@ -7,8 +7,14 @@ import SuccessCard from "../global/SuccessCard";
 const PostCard = () => {
 	const { user } = useSelector((state) => state.user);
 	const [showPostModal, setShowPostModal] = useState(false);
+	const [showPreview, setShowPreview] = useState(false);
 	const [postCreated, setPostCreated] = useState(false);
 	const handleOnInputFocus = () => {
+		setShowPreview(false);
+		setShowPostModal(true);
+	};
+	const handleImageModal = () => {
+		setShowPreview(true);
 		setShowPostModal(true);
 	};
 	return (
@@ -32,7 +38,9 @@ const PostCard = () => {
 						<img src="/icons/live.png" alt="icon" className="svgIcon" /> Live
 						Video
 					</button>
-					<button className={`btn ${classes.optionBtn}`}>
+					<button
+						className={`btn ${classes.optionBtn}`}
+						onClick={handleImageModal}>
 						<svg fill="#45BD62" viewBox="0 0 24 24">
 							<g fillRule="evenodd" transform="translate(-444 -156)">
 								<g>
@@ -48,7 +56,9 @@ const PostCard = () => {
 						</svg>
 						Photo/Video
 					</button>
-					<button className={`btn ${classes.optionBtn}`}>
+					<button
+						className={`btn ${classes.optionBtn}`}
+						onClick={handleOnInputFocus}>
 						<img src="/icons/emoji.png" alt="icon" className="svgIcon" />
 						Feeling/Activity
 					</button>
@@ -58,6 +68,8 @@ const PostCard = () => {
 				<CreatePostModal
 					setShowPostModal={setShowPostModal}
 					setPostCreated={setPostCreated}
+					showPreview={showPreview}
+					setShowPreview={setShowPreview}
 				/>
 			)}
 			{postCreated && <SuccessCard text="Post Created Successfully" />}

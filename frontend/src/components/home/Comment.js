@@ -14,9 +14,9 @@ const Comment = () => {
 	const imageInput = useRef(null);
 	const [cursorPosition, setCursorPosition] = useState();
 	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-	const [error, setError] = useState("");
 	const [commentImage, setCommentImage] = useState("");
 	const [comment, setComment] = useState("");
+	const [error, setError] = useState("");
 
 	useClickOutside(emojiRef, () => setShowEmojiPicker(false));
 
