@@ -61,7 +61,7 @@ const CreatePostModal = ({
 				const postImages = images.map((image) => {
 					return dataUrlToBlob(image);
 				});
-				const path = `${user.username}/post Images`;
+				const path = `${user.username}/postImages`;
 				const formData = new FormData();
 				formData.append("path", path);
 				postImages.forEach((image) => {
