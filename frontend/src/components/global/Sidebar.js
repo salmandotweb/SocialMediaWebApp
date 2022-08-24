@@ -16,7 +16,7 @@ const Sidebar = () => {
 	const { user } = useSelector((state) => state.user);
 	const links = [
 		{
-			to: "/",
+			to: "/profile",
 			text: `${user?.firstName} ${user?.lastName}`,
 			icon: `${user?.picture}`,
 		},

@@ -6,7 +6,7 @@ const Friends = ({ friends }) => {
 		<div className={classes.leftCards}>
 			<div className={classes.leftCardsHeader}>
 				<h3>Friends</h3>
-				<p>{`${friends.length} friends`}</p>
+				<p>{`0 friends`}</p>
 			</div>
 			<div className={classes.leftCardsPhotosContainer}>
 				{friends && friends.length ? (
