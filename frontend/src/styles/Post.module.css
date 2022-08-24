@@ -103,6 +103,7 @@
 	margin-top: 1rem;
 }
 .postImage3 > img {
+	border: 0.1rem solid var(--secondary-dark);
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -121,6 +122,7 @@
 	margin-top: 1rem;
 }
 .postImage4 > img {
+	border: 0.1rem solid var(--secondary-dark);
 	width: 50%;
 	height: 50%;
 	object-fit: cover;
@@ -136,6 +138,7 @@
 .postImage5 img {
 	width: 100%;
 	height: 100%;
+	border: 0.1rem solid var(--secondary-dark);
 	object-fit: cover;
 }
 .postImage5 img:nth-child(1) {

@@ -6,41 +6,16 @@ import Post from "../components/home/Post";
 import PostCard from "../components/home/PostCard";
 import Stories from "../components/home/Stories";
 import classes from "../styles/Home.module.css";
-
-function reducer(state, action) {
-	switch (action.type) {
-		case "POSTS_REQUEST":
-			return {
-				...state,
-				loading: true,
-				error: "",
-			};
-		case "POSTS_SUCCESS":
-			return {
-				...state,
-				loading: false,
-				posts: action.payload,
-				error: "",
-			};
-		case "POSTS_ERROR":
-			return {
-				...state,
-				loading: false,
-				error: action.payload,
-			};
-
-		default:
-			return state;
-	}
-}
+import { postReducer } from "../helpers/reducers";
 
 const Home = ({ children }) => {
 	const { user } = useSelector((state) => state.user);
-	const [{ loading, posts, error }, dispatch] = useReducer(reducer, {
+	const [{ loading, posts, error }, dispatch] = useReducer(postReducer, {
 		loading: false,
 		posts: [],
 		error: "",
 	});
+
 	const getAllPosts = async () => {
 		try {
 			dispatch({

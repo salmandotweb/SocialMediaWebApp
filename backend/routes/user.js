@@ -31,6 +31,6 @@ router.post("/findUser", findUser);
 router.post("/sendResetCode", sendResetCode);
 router.post("/validateResetCode", validateResetCode);
 router.post("/changePassword", changePassword);
-router.get("/getProfile/:username", getProfile);
+router.get("/getProfile/:username", authUser, getProfile);
 
 module.exports = router;

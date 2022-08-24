@@ -1,0 +1,184 @@
+.profilePage {
+	width: 130rem;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+}
+.cover {
+	background: var(--secondary-dark);
+	height: 50rem;
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+	position: relative;
+	width: 100%;
+}
+.cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	background-size: cover;
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+}
+.editCoverContainer {
+	position: absolute;
+	right: 2rem;
+	bottom: 1.5rem;
+}
+.editCoverContainer button {
+	background: var(--white);
+	color: var(--primary-dark);
+	font-size: 1.4rem;
+	font-weight: 800;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+.editCoverContainer button svg {
+	margin-right: 0.5rem;
+	font-size: 1.8rem;
+}
+.editCoverOptions {
+	position: absolute;
+	right: 0;
+	width: 35rem;
+	background: var(--secondary-dark);
+	padding: 1rem;
+	border-radius: var(--border-radius);
+	box-shadow: 0px 0px 4rem rgba(0, 0, 0, 0.3);
+}
+.editCoverOptions button {
+	width: 100%;
+	justify-content: flex-start;
+	background: none;
+	color: var(--white);
+	font-weight: 600;
+}
+.editCoverOptions button:hover {
+	background: var(--light-dark);
+}
+.editCoverOptions button:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+.profileInfo {
+	padding: 0 3rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	border-bottom: 0.1rem solid var(--light-dark);
+	padding-bottom: 2rem;
+	margin-bottom: 2rem;
+}
+.profileImage {
+	width: 16.5rem;
+	height: 16.5rem;
+	margin-top: -3rem;
+	position: relative;
+	margin-right: 2rem;
+}
+.profileImage img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+.editProfileImage {
+	position: absolute;
+	right: 0.5rem;
+	bottom: 1rem;
+	background: var(--light-dark);
+	height: 3.2rem;
+	width: 3.2rem;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+.editProfileImage:hover {
+	background: var(--secondary-dark);
+}
+.editProfileImage svg {
+	font-size: 1.8rem;
+}
+.profileDetails h1 {
+	font-weight: bolder;
+}
+.profileDetails > div {
+	display: flex;
+	align-items: center;
+}
+.profileDetails p {
+	font-weight: 600;
+	color: var(--light-text);
+}
+.profileDetails > div > p:first-child {
+	margin-right: 1rem;
+}
+.profileCardsContainer {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+}
+.left {
+	flex: 0.5;
+	margin-right: 2rem;
+}
+.right {
+	flex: 0.5;
+}
+.postContainer {
+	margin: 2rem 0;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	width: 100%;
+}
+.noPosts {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	text-align: center;
+	margin: 2rem auto;
+	color: var(--light-dark);
+	font-size: 1.7rem;
+	font-weight: 600;
+}
+.leftCards {
+	width: 100%;
+	background: var(--secondary-dark);
+	padding: 1.5rem;
+	border-radius: var(--border-radius);
+	margin-bottom: 2rem;
+}
+.leftCardsHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.leftCardsHeader > h3 {
+	font-size: 2.2rem;
+}
+.leftCardsHeader > p {
+	font-size: 1.5rem;
+	color: var(--light-text);
+}
+.leftCardsPhotosContainer {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1rem;
+	margin-top: 2rem;
+}
+.leftCardsPhotosContainer > img {
+	width: 100%;
+	height: 15rem;
+	object-fit: cover;
+	border-radius: 0.5rem;
+}

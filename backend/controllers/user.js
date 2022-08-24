@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const Post = require("../models/Post");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const {
@@ -271,9 +272,18 @@ exports.changePassword = async (req, res) => {
 exports.getProfile = async (req, res) => {
 	try {
 		const { username } = req.params;
-		const userProfile = await User.find({ username }).select("-password");
+		const userProfile = await User.findOne({ username }).select("-password");
+		if (!userProfile) {
+			return res.json({
+				ok: false,
+			});
+		}
+		const userPosts = await Post.find({ user: userProfile._id })
+			.populate("user")
+			.sort({ createdAt: -1 });
 		res.status(200).json({
-			userProfile,
+			...userProfile.toObject(),
+			userPosts,
 		});
 	} catch (error) {
 		res.status(500).json({

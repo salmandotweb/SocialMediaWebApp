@@ -193,3 +193,6 @@ aside.emoji-picker-react {
 .backgroundStyling textarea::placeholder {
 	color: var(--primary-dark);
 }
+.noData {
+	color: var(--light-text);
+}

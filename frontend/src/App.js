@@ -3,6 +3,7 @@ import HomeLayout from "./layouts/HomeLayout";
 import ActivateAccount from "./pages/ActivateAccount";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
@@ -18,6 +19,8 @@ function App() {
 						path="/activate/:token"
 						element={<HomeLayout children={<ActivateAccount />} />}
 					/>
+					<Route path="/profile" element={<Profile />} />
+					<Route path="/profile/:username" element={<Profile />} />
 				</Route>
 				<Route element={<NotLoggedInRoutes />}>
 					<Route path="/register" element={<Register />} />

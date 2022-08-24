@@ -25,6 +25,24 @@ exports.uploadImages = async (req, res) => {
 	}
 };
 
+exports.images = async (req, res) => {
+	try {
+		const { path, sort, max } = req.body;
+		cloudinary.v2.search
+			.expression(`${path}`)
+			.sort_by("created_at", `${sort}`)
+			.max_results(max)
+			.execute()
+			.then((result) => {
+				res.json(result);
+			});
+	} catch (error) {
+		return res.status(500).json({
+			message: error.message,
+		});
+	}
+};
+
 const uploadToCloudinary = async (file, path) => {
 	return new Promise((resolve) => {
 		cloudinary.v2.uploader.upload(
@@ -53,23 +71,4 @@ const removeTmp = (filePath) => {
 			throw err;
 		}
 	});
-};
-
-exports.images = async (req, res) => {
-	try {
-		const { path, sort, max } = req.body;
-		cloudinary.v2.search
-			.expression(`${path}`)
-			.sort_by("created_at", `${sort}`)
-			.max_results(max)
-			.execute()
-			.then((result) => {
-				res.json(result);
-			});
-		res.json(images);
-	} catch (error) {
-		return res.status(500).json({
-			message: error.message,
-		});
-	}
 };
