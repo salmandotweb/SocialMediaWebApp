@@ -196,3 +196,7 @@ aside.emoji-picker-react {
 .noData {
 	color: var(--light-text);
 }
+.reactEasyCrop_CropAreaGrid {
+	width: 40rem !important;
+	height: 100% !important;
+}
