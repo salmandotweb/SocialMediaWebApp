@@ -30,7 +30,7 @@ const Post = ({ post }) => {
 						)}
 						{post?.type === "profilePicture" ? (
 							<div className={classes.updated}>
-								<h3>{`${post?.user?.firstName} ${post?.user?.lastName}`}</h3>
+								<h4>{`${post?.user?.firstName} ${post?.user?.lastName}`}</h4>
 								<p>{`has updated ${
 									post?.user.gender === "male" ? "his" : "her"
 								} profile picture.`}</p>
@@ -83,7 +83,7 @@ const Post = ({ post }) => {
 							{post?.text}
 						</div>
 					</>
-				) : (
+				) : post?.type === null ? (
 					<>
 						{post?.text && <p>{post?.text}</p>}
 						{post?.images && post?.images.length && (
@@ -111,6 +111,19 @@ const Post = ({ post }) => {
 							</div>
 						)}
 					</>
+				) : post?.type === "profilePicture" ? (
+					<>
+						{post?.text && <p>{post?.text}</p>}
+						<div className={classes.profilePicture}>
+							<img
+								src={post?.images[0].url}
+								alt=""
+								className={`${classes.postImage}`}
+							/>
+						</div>
+					</>
+				) : (
+					""
 				)}
 			</div>
 			<div className={classes.postFooter}>

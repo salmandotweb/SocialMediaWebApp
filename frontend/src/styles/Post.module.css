@@ -44,7 +44,6 @@
 .updated > p {
 	font-size: 1.6rem;
 	color: var(--light-text);
-	margin-top: 0.4rem;
 	margin-left: 0.5rem;
 }
 .date {
@@ -71,6 +70,18 @@
 	font-size: 1.5rem;
 	font-weight: 500;
 	padding: 0rem 2rem 0.5rem 2rem;
+}
+.profilePicture {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 4rem 0 5rem 0;
+}
+.profilePicture > img {
+	width: 40rem;
+	height: 40rem;
+	border-radius: 50%;
+	margin: 0 auto;
 }
 .postImage {
 	width: 100%;
@@ -190,7 +201,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0rem 1rem;
+	padding: 0 1rem;
 }
 .postReactions {
 	padding: 0 1rem;

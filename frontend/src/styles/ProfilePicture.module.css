@@ -17,6 +17,7 @@
 	background: var(--primary-dark);
 	color: var(--white);
 	min-width: 50rem;
+	max-width: 50rem;
 	min-height: 30rem;
 	border-radius: var(--border-radius);
 	display: flex;
@@ -143,4 +144,22 @@
 .buttonsContainer button:first-child {
 	margin-right: 0.5rem;
 	background: none;
+}
+.oldPicturesContainer {
+	padding: 1rem 2rem;
+}
+.photosContainer {
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+.photosContainer img {
+	width: 8rem;
+	height: 8rem;
+	object-fit: cover;
+	border-radius: var(--border-radius);
+	cursor: pointer;
 }

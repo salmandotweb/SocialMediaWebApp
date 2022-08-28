@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../components/global/Header";
@@ -15,10 +15,15 @@ import classes from "../styles/Profile.module.css";
 const Profile = () => {
 	const { username } = useParams();
 	const { user } = useSelector((state) => state.user);
+	const [photos, setPhotos] = useState({});
 	const navigate = useNavigate();
 
 	let userName = username === undefined ? user.username : username;
 	let profileVisitor = userName === user.username ? false : true;
+
+	const path = `${userName}/*`;
+	const max = 30;
+	const sort = "desc";
 
 	const [{ loading, profile, error }, dispatch] = useReducer(profileReducer, {
 		loading: false,
@@ -46,6 +51,24 @@ const Profile = () => {
 			if (data.ok === false) {
 				navigate(`/profile`);
 			} else {
+				try {
+					const images = await axios.post(
+						`${process.env.REACT_APP_BASE_URL}/images`,
+						{
+							path,
+							sort,
+							max,
+						},
+						{
+							headers: {
+								Authorization: `Bearer ${user.token}`,
+							},
+						}
+					);
+					setPhotos(images.data);
+				} catch (error) {
+					console.log(error);
+				}
 				dispatch({
 					type: "PROFILE_SUCCESS",
 					payload: data,
@@ -64,10 +87,14 @@ const Profile = () => {
 			<Header />
 			<div className={classes.profilePage}>
 				<Cover profileVisitor={profileVisitor} profile={profile} />
-				<ProfileInfo profileVisitor={profileVisitor} profile={profile} />
+				<ProfileInfo
+					profileVisitor={profileVisitor}
+					profile={profile}
+					photos={photos.resources}
+				/>
 				<div className={classes.profileCardsContainer}>
 					<div className={classes.left}>
-						<Photos username={userName} />
+						<Photos username={userName} photos={photos} />
 						<Friends friends={profile?.friends} />
 					</div>
 					<div className={classes.right}>

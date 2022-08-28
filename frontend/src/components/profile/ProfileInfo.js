@@ -3,7 +3,7 @@ import { BsFillCameraFill } from "react-icons/bs";
 import classes from "../../styles/Profile.module.css";
 import ProfilePicture from "./ProfilePicture";
 
-const ProfileInfo = ({ profileVisitor, profile }) => {
+const ProfileInfo = ({ profileVisitor, profile, photos }) => {
 	const [show, setShow] = useState(false);
 	const profilePictureRef = useRef(null);
 	const friends = profile?.friends?.length;
@@ -34,6 +34,7 @@ const ProfileInfo = ({ profileVisitor, profile }) => {
 					show={show}
 					setShow={setShow}
 					profilePictureRef={profilePictureRef}
+					photos={photos}
 				/>
 			)}
 		</>

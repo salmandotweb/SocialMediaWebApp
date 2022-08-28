@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
 import { FaPlus, FaTimes } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import classes from "../../styles/ProfilePicture.module.css";
 import UpdateProfilePicture from "./UpdateProfilePicture";
 
-const ProfilePicture = ({ setShow, profilePictureRef }) => {
+const ProfilePicture = ({ setShow, profilePictureRef, photos }) => {
+	const { user } = useSelector((state) => state.user);
 	const inputRef = useRef();
 	const [error, setError] = useState("");
 	const [image, setImage] = useState("");
@@ -29,6 +31,7 @@ const ProfilePicture = ({ setShow, profilePictureRef }) => {
 			setImage(e.target.result);
 		};
 	};
+
 	return (
 		<>
 			<div className={classes.overlay} onClick={() => setShow(false)}></div>
@@ -54,6 +57,49 @@ const ProfilePicture = ({ setShow, profilePictureRef }) => {
 						Upload Photo
 					</button>
 				</div>
+				{photos.length ? (
+					<>
+						<div className={classes.oldPicturesContainer}>
+							<h4>Profile Pictures</h4>
+							<div className={classes.photosContainer}>
+								{photos
+									.filter(
+										(img) => img.folder === `${user.username}/profilePictures`
+									)
+									.slice(0, 10)
+									.map((photo) => (
+										<img
+											src={photo.secure_url}
+											key={photo.public_id}
+											alt=""
+											onClick={() => setImage(photo.secure_url)}
+										/>
+									))}
+							</div>
+						</div>
+
+						<div className={classes.oldPicturesContainer}>
+							<h4>Timeline Pictures</h4>
+							<div className={classes.photosContainer}>
+								{photos
+									.filter(
+										(img) => img.folder !== `${user.username}/profilePictures`
+									)
+									.slice(0, 10)
+									.map((photo) => (
+										<img
+											src={photo.secure_url}
+											key={photo.public_id}
+											alt=""
+											onClick={() => setImage(photo.secure_url)}
+										/>
+									))}
+							</div>
+						</div>
+					</>
+				) : (
+					""
+				)}
 			</div>
 			{image && (
 				<UpdateProfilePicture
