@@ -138,9 +138,9 @@
 }
 .buttonsContainer button {
 	font-size: 1.4rem;
-	padding: 1rem 3rem;
+	padding: 1rem 2rem;
 }
 .buttonsContainer button:first-child {
-	margin-right: 1rem;
-	background: var(--secondary-dark);
+	margin-right: 0.5rem;
+	background: none;
 }

@@ -3,7 +3,7 @@ import { FaPlus, FaTimes } from "react-icons/fa";
 import classes from "../../styles/ProfilePicture.module.css";
 import UpdateProfilePicture from "./UpdateProfilePicture";
 
-const ProfilePicture = ({ setShow }) => {
+const ProfilePicture = ({ setShow, profilePictureRef }) => {
 	const inputRef = useRef();
 	const [error, setError] = useState("");
 	const [image, setImage] = useState("");
@@ -57,6 +57,7 @@ const ProfilePicture = ({ setShow }) => {
 			</div>
 			{image && (
 				<UpdateProfilePicture
+					profilePictureRef={profilePictureRef}
 					image={image}
 					setShow={setShow}
 					setImage={setImage}

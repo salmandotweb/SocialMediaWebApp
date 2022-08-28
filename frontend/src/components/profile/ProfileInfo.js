@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { BsFillCameraFill } from "react-icons/bs";
 import classes from "../../styles/Profile.module.css";
 import ProfilePicture from "./ProfilePicture";
 
 const ProfileInfo = ({ profileVisitor, profile }) => {
 	const [show, setShow] = useState(false);
+	const profilePictureRef = useRef(null);
 	const friends = profile?.friends?.length;
 	const followers = profile?.followers?.length;
 	return (
 		<>
 			<div className={classes.profileInfo}>
 				<div className={classes.profileImage}>
-					<img src={profile?.picture} alt="" />
+					<img src={profile?.picture} alt="" ref={profilePictureRef} />
 					{!profileVisitor && (
 						<div
 							className={classes.editProfileImage}
@@ -28,7 +29,13 @@ const ProfileInfo = ({ profileVisitor, profile }) => {
 					</div>
 				</div>
 			</div>
-			{show && <ProfilePicture show={show} setShow={setShow} />}
+			{show && (
+				<ProfilePicture
+					show={show}
+					setShow={setShow}
+					profilePictureRef={profilePictureRef}
+				/>
+			)}
 		</>
 	);
 };

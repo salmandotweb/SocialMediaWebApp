@@ -3,17 +3,27 @@ import axios from "axios";
 import Cropper from "react-easy-crop";
 import { FaMinus, FaPlus, FaTimes } from "react-icons/fa";
 import getCroppedImg from "../../helpers/CroppedImage";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classes from "../../styles/ProfilePicture.module.css";
 import { uploadImages } from "../../helpers/uploadImages";
+import BeatLoader from "react-spinners/BeatLoader";
+import Cookies from "js-cookie";
 
-const UpdateProfilePicture = ({ image, setImage, setError, setShow }) => {
+const UpdateProfilePicture = ({
+	image,
+	setImage,
+	setError,
+	setShow,
+	profilePictureRef,
+}) => {
 	const [caption, setCaption] = useState("");
 	const [crop, setCrop] = useState({ x: 0, y: 0 });
 	const [zoom, setZoom] = useState(1);
+	const [loading, setLoading] = useState(false);
 	const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 	const { user } = useSelector((state) => state.user);
 	const sliderRef = useRef();
+	const dispatch = useDispatch();
 
 	const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
 		setCroppedAreaPixels(croppedAreaPixels);
@@ -47,15 +57,19 @@ const UpdateProfilePicture = ({ image, setImage, setError, setShow }) => {
 
 	const updateProfilePicture = async () => {
 		try {
+			setLoading(true);
 			let image = await getCroppedImage();
 			let blob = await fetch(image).then((b) => b.blob());
 			const path = `${user.username}/profilePictures`;
 			let formData = new FormData();
 			formData.append("file", blob);
 			formData.append("path", path);
-			const res = uploadImages(user.token, path, formData);
-			const updatedPicture = await axios.put(
-				`${process.env.REACT_APP_BASE_URL}/updateProfilePicture`,
+			// uploading profile picture
+			const res = await uploadImages(user.token, path, formData);
+			// updating profile picture
+			const updatePicture = await axios.put(
+				`
+				${process.env.REACT_APP_BASE_URL}/updateProfilePicture`,
 				{
 					url: res[0].url,
 				},
@@ -65,7 +79,8 @@ const UpdateProfilePicture = ({ image, setImage, setError, setShow }) => {
 					},
 				}
 			);
-			await axios.post(
+			// creating profile picture updated post
+			const response = await axios.post(
 				`${process.env.REACT_APP_BASE_URL}/createPost`,
 				{
 					type: "profilePicture",
@@ -80,7 +95,29 @@ const UpdateProfilePicture = ({ image, setImage, setError, setShow }) => {
 					},
 				}
 			);
+
+			if (response.status === 200) {
+				setLoading(false);
+				setImage("");
+				profilePictureRef.current.src = res[0].url;
+				Cookies.set(
+					"user",
+					JSON.stringify({
+						...user,
+						picture: res[0].url,
+					})
+				);
+				dispatch({
+					type: "updateProfilePicture",
+					payload: res[0].url,
+				});
+				setShow(false);
+			} else {
+				setLoading(false);
+				setError(response.statusText);
+			}
 		} catch (error) {
+			setLoading(false);
 			setError(error);
 		}
 	};
@@ -132,8 +169,15 @@ const UpdateProfilePicture = ({ image, setImage, setError, setShow }) => {
 				<button className="btn" onClick={() => setImage("")}>
 					Cancel
 				</button>
-				<button className="btn" onClick={updateProfilePicture}>
-					Save
+				<button
+					disabled={loading}
+					className="btn"
+					onClick={updateProfilePicture}>
+					{loading ? (
+						<BeatLoader color="#fff" loading={loading} size={5} />
+					) : (
+						"Save"
+					)}
 				</button>
 			</div>
 		</div>
