@@ -39,6 +39,7 @@ const Profile = () => {
 		try {
 			dispatch({
 				type: "PROFILE_REQUEST",
+				loading: true,
 			});
 			const { data } = await axios.get(
 				`${process.env.REACT_APP_BASE_URL}/getProfile/${userName}`,
@@ -71,12 +72,14 @@ const Profile = () => {
 				}
 				dispatch({
 					type: "PROFILE_SUCCESS",
+					loading: false,
 					payload: data,
 				});
 			}
 		} catch (error) {
 			dispatch({
 				type: "PROFILE_ERROR",
+				loading: false,
 				payload: error.response.data.message,
 			});
 		}
@@ -91,6 +94,7 @@ const Profile = () => {
 					profileVisitor={profileVisitor}
 					profile={profile}
 					photos={photos.resources}
+					loading={loading}
 				/>
 				<div className={classes.profileCardsContainer}>
 					<div className={classes.left}>
